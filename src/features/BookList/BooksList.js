@@ -96,6 +96,15 @@ const products = [
     price: '$35',
    
   },
+  {
+    id: 1,
+    name: 'Books',
+    href: '#',
+    imageSrc: 'https://i.ibb.co/VQhWKy0/image.png',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$35',
+   
+  },
  
   // More products...
 ]
@@ -305,7 +314,9 @@ export default function BooksList() {
               </form>
 
               {/* Product grid */}
-              <div className="bg-white  lg:w-[1200px]">
+              <div className="lg:col-span-3">
+              {/* Your content */}
+              <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">Customers Can purchased</h2>
 
@@ -334,6 +345,7 @@ export default function BooksList() {
           ))}
         </div>
       </div>
+    </div>
     </div>
             </div>
           </section>

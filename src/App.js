@@ -1,11 +1,12 @@
 
 import './App.css';
-import BooksList from './features/BookList/BooksList';
+import './index.css'
+import Home from './features/Pages/Home';
 
 function App() {
   return (
     <div className="App">
-      <BooksList></BooksList>
+      <Home></Home>
     </div>
   );
 }
