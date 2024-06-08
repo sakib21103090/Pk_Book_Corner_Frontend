@@ -119,6 +119,7 @@ export default function BooksList() {
     <div>
       <div>
       <div className="bg-white ">
+      
       <div>
         {/* Mobile filter dialog */}
         <Transition show={mobileFiltersOpen}>

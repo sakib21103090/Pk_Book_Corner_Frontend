@@ -39,8 +39,8 @@ function classNames(...classes) {
 function Navbar({children}) {
     return (
         
-        <div className="max-w-screen-2xl mx-auto">
-        <Disclosure as="nav" className="bg-yellow-500	h-16 ">
+        <div className="max-w-screen-2xl  mx-auto  ">
+        <Disclosure as="nav" className="bg-yellow-500 w-full mx-auto	h-16 rounded-sm  sticky	top-0 ">
           {({ open }) => (
             <>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -48,7 +48,7 @@ function Navbar({children}) {
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
                       <img
-                        className=" h-14 w-30"
+                        className=" h-16 w-30"
                         src={logo}
                         alt="Bookshop logo"
                       />
@@ -189,6 +189,8 @@ function Navbar({children}) {
             </>
           )}
         </Disclosure>
+
+
         
         <main>
           <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">{children}</div>
