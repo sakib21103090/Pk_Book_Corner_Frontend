@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import logo from '../../../src/assets/logo/logoweb.png'
+import logo from '../../../src/assets/logo/mainlogo.png'
 import {
   Disclosure,
   DisclosureButton,
@@ -10,7 +10,7 @@ import {
   MenuItems,
   Transition,
 } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const user = {
   name: 'sakib',
@@ -40,7 +40,7 @@ function Navbar({children}) {
     return (
         
         <div className="max-w-screen-2xl  mx-auto  ">
-        <Disclosure as="nav" className="bg-yellow-500 w-full mx-auto	h-16 rounded-sm  sticky	top-0 ">
+        <Disclosure as="nav" className=" bg-yellow-500 w-full mx-auto	h-16 rounded-sm  sticky	top-0 ">
           {({ open }) => (
             <>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -77,12 +77,14 @@ function Navbar({children}) {
                     <div className="ml-4 flex items-center md:ml-6">
                       <button
                         type="button"
-                        className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                        className="relative rounded-full bg-gray-700 p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                       >
                         <span className="absolute -inset-1.5" />
-                        <span className="sr-only">View notifications</span>
-                        <BellIcon className="h-6 w-6" aria-hidden="true" />
+                        <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
+                        
                       </button>
+                      {/* cart add value */}
+                      <span className="inline-flex items-center rounded-md mb-7 -ml-2 bg-purple-600 px-2 py-1 text-xs font-medium text-white ring-1 ring-inset ring-purple-700/10">1+</span>
 
                       {/* Profile dropdown */}
                       <Menu as="div" className="relative ml-3">
@@ -165,12 +167,12 @@ function Navbar({children}) {
                     </div>
                     <button
                       type="button"
-                      className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                      className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                     >
                       <span className="absolute -inset-1.5" />
-                      <span className="sr-only">View notifications</span>
-                      <BellIcon className="h-6 w-6" aria-hidden="true" />
+                      <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
+                    <span className="inline-flex items-center rounded-md mb-7 -ml-2 bg-purple-600 px-2 py-1 text-xs font-medium text-white ring-1 ring-inset ring-purple-700/10">1+</span>
                   </div>
                   <div className="mt-3 space-y-1 px-2">
                     {userNavigation.map((item) => (
