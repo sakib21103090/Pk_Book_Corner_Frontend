@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchCount } from './BooksListApi';
+import { fetchCount } from './AuthAPI';
 
 const initialState = {
   value: 0,
@@ -15,7 +15,7 @@ export const incrementAsync = createAsyncThunk(
   }
 );
 
-export const BooksListApi = createSlice({
+export const AuthSlice = createSlice({
   name: 'counter',
   initialState,
   
@@ -39,10 +39,10 @@ export const BooksListApi = createSlice({
   },
 });
 
-export const { increment} = BooksListApi.actions;
+export const { increment} = AuthSlice.actions;
 
 export const selectCount = (state) => state.counter.value;
 
 
 
-export default BooksListApi.reducer;
+export default AuthSlice.reducer;
