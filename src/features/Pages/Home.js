@@ -1,4 +1,4 @@
-import BooksList from "../BookList/BooksList";
+import BooksList from "../BookList/Components/BooksList";
 import Navbar from "../Shared/Navbar";
 
 
