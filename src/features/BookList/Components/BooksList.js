@@ -22,7 +22,8 @@ import {
   TransitionChild,
 } from '@headlessui/react'
 
-import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon, MagnifyingGlassIcon} from '@heroicons/react/20/solid'
+
 import { Link } from 'react-router-dom';
 
 const sortOptions = [
@@ -111,6 +112,22 @@ export default function BooksList() {
 
   return (
     <div>
+      <div className="flex items-center justify-center  pb-6">
+      <div className="flex  border border-gray-300 py-2 px-6 bg-white shadow-lg rounded-lg">
+        <input
+          className="appearance-none bg-transparent  rounded border-none w-full text-gray-700 mr-3 py-2 px-4  focus:outline-none text-lg font-light"
+          type="text"
+          placeholder="Search..."
+          aria-label="Search"
+        />
+        <button
+          className="flex-shrink-0 bg-yellow-500 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transform transition-transform hover:scale-105 focus:outline-none"
+          type="button"
+        >
+          <MagnifyingGlassIcon className="h-6 w-6 text-white" />
+        </button>
+      </div>
+    </div>
       <div>
       <div className="bg-white ">
       
