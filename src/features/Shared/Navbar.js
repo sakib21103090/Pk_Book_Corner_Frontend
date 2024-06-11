@@ -20,7 +20,7 @@ const user = {
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'Home', href: '#', current: true },
+  { name: 'Home', href: '/', current: true },
   { name: 'Dashboard', href: '#', current: false },
   { name: 'contact', href: '#', current: false },
 
@@ -41,18 +41,18 @@ function Navbar({children}) {
     return (
         
         <div className="max-w-screen-2xl  mx-auto  ">
-        <Disclosure as="nav" className=" bg-yellow-500 w-full mx-auto	h-16 rounded-sm  sticky	top-0 ">
+        <Disclosure as="nav" className=" bg-yellow-500 w-full mx-auto	h-16 rounded-sm   ">
           {({ open }) => (
             <>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <img
+                      <Link to="/"> <img
                         className=" h-16 w-30"
                         src={logo}
                         alt="Bookshop logo"
-                      />
+                      /></Link>
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
@@ -131,7 +131,6 @@ function Navbar({children}) {
                     {/* Mobile menu button */}
                     <DisclosureButton className="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="absolute -inset-0.5" />
-                      <span className="sr-only">Open main menu</span>
                       {open ? (
                         <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
                       ) : (

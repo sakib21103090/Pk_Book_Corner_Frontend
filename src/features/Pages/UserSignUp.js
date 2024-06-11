@@ -4,7 +4,7 @@ import Navbar from "../Shared/Navbar";
 function UserSignUp(){
     return(
         <div>
-        <Navbar></Navbar>
+        
              <SignUp></SignUp>
                  
         </div>
