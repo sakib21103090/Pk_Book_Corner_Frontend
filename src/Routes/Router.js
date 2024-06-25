@@ -11,6 +11,7 @@ import {
   import CheckOutPage from "../features/Pages/CheckOutPage";
   import BooksInfoPage from "../features/Pages/BooksInfoPage";
 import Main from "../Layouts/Main";
+import Error from "../features/Error/Error";
   
   
   export const router = createBrowserRouter([
@@ -18,7 +19,7 @@ import Main from "../Layouts/Main";
     {
         path: "/",
         element: <Main></Main>,
-        // errorElement:<Error></Error>,
+        errorElement:<Error></Error>,
         children :[
               {
                 path: "/",

@@ -6,12 +6,15 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { router } from "./Routes/Router";
+import AuthProviders from "./Providers/AuthProviders";
 
 function App() {
   return (
-    <div className="App max-w-screen-2xl mx-auto ">
+   <AuthProviders>
+     <div className="App max-w-screen-2xl mx-auto ">
       <RouterProvider router={router} />
     </div>
+   </AuthProviders>
   );
 }
 

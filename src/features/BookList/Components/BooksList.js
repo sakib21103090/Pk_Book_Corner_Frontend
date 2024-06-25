@@ -113,7 +113,7 @@ export default function BooksList() {
   return (
     <div>
       <div className="flex items-center justify-center  pb-6">
-      <div className="flex  border border-gray-300 py-2 px-6 bg-white shadow-lg rounded-lg">
+      <div className="flex  border border-gray-300 mt-24 py-2 px-6 bg-white shadow-lg rounded-lg">
         <input
           className="appearance-none bg-transparent  rounded border-none w-full text-gray-700 mr-3 py-2 px-4  focus:outline-none text-lg font-light"
           type="text"

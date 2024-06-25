@@ -40,7 +40,7 @@ function classNames(...classes) {
 function Navbar({children}) {
     return (
         
-        <div className="max-w-screen-2xl  mx-auto  ">
+        <div className="max-w-screen-2xl  mx-auto   ">
         <Disclosure as="nav" className=" bg-yellow-500 w-full mx-auto	h-16 rounded-sm   ">
           {({ open }) => (
             <>
@@ -196,8 +196,6 @@ function Navbar({children}) {
             </>
           )}
         </Disclosure>
-
-
         
         <main>
           <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">{children}</div>
