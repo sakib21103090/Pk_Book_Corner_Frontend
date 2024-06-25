@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext,  } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { RxDropdownMenu } from "react-icons/rx";
 import logo from '../../assets/logo/mainlogo.png'
 import { AuthContext } from '../../Providers/AuthProviders';
+import Swal from 'sweetalert2';
 
 const Navigation = () => {
   
@@ -10,8 +11,12 @@ const Navigation = () => {
   console.log(user)
   const handleLogOut = () => {
       logOut()
-          .then()
+      
+      .then(() => {
+        Swal.fire('Hey', 'Logout successful', 'success');
+      })
           .catch(error => console.log(error));
+          
   }
   
     return (
