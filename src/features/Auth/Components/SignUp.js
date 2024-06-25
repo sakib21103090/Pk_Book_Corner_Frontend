@@ -44,7 +44,7 @@ export default function SignUp() {
     
     <div>
           
-            <div className="hero min-h-screen  pt-24 bg-rose-100">
+            <div className="hero min-h-screen  pt-24 bg-gray-100">
     <div className="hero-content flex-col lg:flex-row">
         <div className="w-1/2 mr-12">
         <img className='w-[600px] rounded-2' src={signuplogo} alt="" />

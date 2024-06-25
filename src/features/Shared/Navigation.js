@@ -4,6 +4,7 @@ import { RxDropdownMenu } from "react-icons/rx";
 import logo from '../../assets/logo/mainlogo.png'
 import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
+import { ShoppingCartIcon } from '@heroicons/react/20/solid';
 
 const Navigation = () => {
   
@@ -20,7 +21,7 @@ const Navigation = () => {
   }
   
     return (
-        <div  className="navbar  fixed z-10   max-w-screen-2xl mx-auto  bg-yellow-200">
+        <div  className="navbar  max-w-screen-2xl mx-auto  bg-yellow-200">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className=" text-3xl text-black lg:hidden"> {/* button for mobile screen */}
@@ -60,6 +61,19 @@ const Navigation = () => {
         <div>     
         </div>
         <div className=" navbar-end">
+        <Link to="/cart">
+                      <button
+                        type="button"
+                        className="relative rounded-full bg-gray-700 p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                      >
+                        <span className="absolute -inset-1.5" />
+                        <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
+                        
+                      </button>
+                      </Link>
+                      {/* cart add value */}
+                      <span className="inline-flex items-center rounded-md mb-7 -ml-2 bg-purple-600 px-2 py-1 text-xs font-medium text-white ring-1 ring-inset ring-purple-700/10">1+</span>
+
         <label className="swap swap-rotate">
   
   
