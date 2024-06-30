@@ -207,13 +207,12 @@ export default function BooksList() {
         <div>
           <div className="bg-white">
             <div>
-              {/* Mobile filter dialog */}
+              {/*start Mobile filter dialog function */}
           
               <MobileFilter handleFilter={handleFilter} mobileFiltersOpen={mobileFiltersOpen} setMobileFiltersOpen={setMobileFiltersOpen}></MobileFilter> 
+
               <main className="mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
-                  <h1 className="text-4xl font-bold tracking-tight text-gray-900">Books</h1>
-  
                   <div className="flex items-center">
                     <Menu as="div" className="relative inline-block text-left">
                       <div>
@@ -277,14 +276,17 @@ export default function BooksList() {
                   <h2 id="products-heading" className="sr-only">Products</h2>
   
                   <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-                    {/* Filters */}
-                    <DesktopFilter handleFilter={handleFilter}></DesktopFilter> 
 
-              {/* Product grid */}
+                    {/* start DesktopFilter function */}
+                    <DesktopFilter handleFilter={handleFilter}></DesktopFilter> 
+                    
+              
+
               <div className="lg:col-span-3">
               {/* all books for sell */}
               <div className="bg-white">
-              <BooksCard products={products}></BooksCard>
+              {/*  start boooks  grid function */}
+              <BooksCard products={products}></BooksCard>       
     </div>
     </div>
             </div>
@@ -300,6 +302,7 @@ export default function BooksList() {
   );
 }
 
+// make different function for easy to use code
 function MobileFilter({mobileFiltersOpen, setMobileFiltersOpen,handleFilter}){
   return (
     <Transition show={mobileFiltersOpen}>
