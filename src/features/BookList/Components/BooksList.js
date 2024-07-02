@@ -28,6 +28,7 @@ import {
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon, MagnifyingGlassIcon} from '@heroicons/react/20/solid'
 
 import { Link } from 'react-router-dom';
+import CartPage from '../../Pages/CartPage';
 
 
 const sortOptions = [
@@ -143,26 +144,39 @@ export default function BooksList() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const products =useSelector(selectAllProducts)
   console.log(products)
+  const [sort, setSort] = useState({});
   const [filter,setFilter]=useState({});
 
 
-  const handleFilter=(e,section,option)=>{
-  const newFilter={...filter,[section.id]:option.value}
-  setFilter(newFilter)
-  dispatch(fetchProductsByFiltersAsync(newFilter))
-  console.log(section.id,option.label)
-  }
+   const handleFilter=(e,section,option)=>{
+    console.log(e.target.checked)
+    const newFilter = {...filter};
+    // TODO : on server it will support multiple categories
+    if(e.target.checked){
+      if(newFilter[section.id]){
+        newFilter[section.id].push(option.value)
+      } else{
+        newFilter[section.id] = [option.value]
+      }
+    } else{
+       const index = newFilter[section.id].findIndex(el=>el===option.value)
+       newFilter[section.id].splice(index,1);
+    }
+    setFilter(newFilter)
+    console.log({newFilter});
+    
+  };
+
   const handleSort = (e, option) => {
-    const newFilter = { ...filter, _sort: option.sort, _order: option.order };
-    setFilter(newFilter);
-    dispatch(fetchProductsByFiltersAsync(newFilter));
+    const sort = { _sort: option.sort, _order: option.order };
+    console.log({sort});
+    setSort(sort);
   };
   
   useEffect(()=>{
-    dispatch(fetchAllProductsAsync())
-  },[dispatch])
-  console.log(products)
- 
+    dispatch(fetchProductsByFiltersAsync({filter, sort}));
+  }, [dispatch,filter])
+
 
   // multiple filter
   // const handleFilter = (e, section, option) => {
@@ -213,6 +227,7 @@ export default function BooksList() {
 
               <main className="mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
+                <h1 className="text-3xl font-bold tracking-tight text-gray-900">Filter By</h1>
                   <div className="flex items-center">
                     <Menu as="div" className="relative inline-block text-left">
                       <div>
@@ -294,6 +309,7 @@ export default function BooksList() {
           {/* all Bookslist end  */}
           {/* start pagination */}
           <Pagination></Pagination>
+         
         </main>
       </div>
     </div>
@@ -302,7 +318,7 @@ export default function BooksList() {
   );
 }
 
-// make different function for easy to use code
+// make different function for easy to use comment 
 function MobileFilter({mobileFiltersOpen, setMobileFiltersOpen,handleFilter}){
   return (
     <Transition show={mobileFiltersOpen}>
@@ -440,7 +456,7 @@ function BooksCard({products}){
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
           {products.map((product) => (
-            <Link to="/product-detail" key={product.id}>
+            <Link to="/booksinfopage" key={product.id}>
                           <div className="group relative border-solid border-2 p-2 border-gray-200">
                             <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
                               <img
