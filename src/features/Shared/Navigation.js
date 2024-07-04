@@ -86,12 +86,12 @@ const Navigation = () => {
     </div>
     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow  bg-transparent text-black rounded-box w-52">
       <li>
-        <a className="justify-between font-extrabold">
+        <p className="justify-between font-extrabold">
           Profile
-        </a>
-        <a className="justify-between font-extrabold">
+        </p>
+        <p className="justify-between font-extrabold">
         {user ? <button onClick={handleLogOut} >Log Out</button>:<Link to="/login" >Login</Link> }
-        </a>
+        </p>
       </li>
       {/* {user ? <button onClick={handleLogOut} className="btn  ">Log Out</button>:<Link to="/login" className="btn ">Login</Link> } */}
     </ul>

@@ -27,8 +27,9 @@ const GoogleSignup = () => {
 
   return (
     <div className='mb-4'>
-      <button className="btn bg-amber-300 w-full text-black" onClick={handelGoogleLogin}>
-        <FaGoogle /> Google
+       <button className="flex items-center px-4 py-2 mx-auto bg-white border border-gray-300 rounded shadow-sm hover:bg-gray-100"onClick={handelGoogleLogin} >
+        <img className="w-6 h-6 mr-3" src="https://i.ibb.co/ZKwR56g/logo-google.png" alt="Google logo" />
+        <span className="text-gray-800 font-medium">Sign in with Google</span>
       </button>
     </div>
   );

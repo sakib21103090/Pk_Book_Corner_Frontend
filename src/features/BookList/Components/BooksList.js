@@ -5,9 +5,18 @@ import {
  
   fetchAllProductsAsync,
   
+  fetchAuthorNameAsync,
+  
+  fetchCategoryAsync,
+  
   fetchProductsByFiltersAsync,
   
+  selectAllAuthorName,
+  
+  selectAllCategory,
+  
   selectAllProducts,
+ 
  
 } from './BooksSlice';
 
@@ -28,113 +37,20 @@ import {
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon, MagnifyingGlassIcon} from '@heroicons/react/20/solid'
 
 import { Link } from 'react-router-dom';
-import CartPage from '../../Pages/CartPage';
 
 
 const sortOptions = [
-  { name: 'Best Rating', sort: 'rating', order: 'desc', current: false }, // Changed order to 'desc' for high to low
+    { name: 'Best Rating', sort: 'rating', order: 'desc', current: false },
   { name: 'Price: Low to High', sort: 'price', order: 'asc', current: false },
   { name: 'Price: High to Low', sort: 'price', order: 'desc', current: false },
 ];
 
-const filters = [
-  {
-    id: 'AuthorName',
-    name: 'AuthorName',
-    options: [
-      {
-        value: 'Mohammad Zakaria',
-        label: 'Mohammad Zakaria',
-        checked: false
-      },
-      {
-        value: 'Muhammed Zafar Iqbal',
-        label: 'Muhammed Zafar Iqbal',
-        checked: false
-      },
-      { value: 'Asif Azim', label: 'Asif Azim', checked: false },
-      {
-        value: 'Dr. Zafrullah Chowdhury',
-        label: 'Dr. Zafrullah Chowdhury',
-        checked: false
-      },
-      {
-        value: 'Dakshinaranjan Mitra Majumder',
-        label: 'Dakshinaranjan Mitra Majumder',
-        checked: false
-      },
-      { value: 'গীতগোবিন্দ', label: 'গীতগোবিন্দ', checked: false },
-      {
-        value: 'Hasan Azizul Haque',
-        label: 'Hasan Azizul Haque',
-        checked: false
-      },
-      { value: 'A K M Azizul Haque', label: 'A K M Azizul Haque', checked: false },
-      { value: 'অরুন্ধতী রায়', label: 'অরুন্ধতী রায়', checked: false },
-      {
-        value: 'Dr. Tahmina Banu',
-        label: 'Dr. Tahmina Banu',
-        checked: false
-      },
-      {
-        value: 'Gazi Abdul Hakim',
-        label: 'Gazi Abdul Hakim',
-        checked: false
-      },
-      {
-        value: 'রবীন্দ্রনাথ ঠাকুর ',
-        label: 'রবীন্দ্রনাথ ঠাকুর ',
-        checked: false
-      }
-    ],
-  },
-  {
-    id: 'category',
-    name: 'category',
-    options: [
-      {
-        value: 'Educational Books',
-        label: 'Educational Books',
-        checked: false
-      },
-      {
-        value: 'Science and Technology',
-        label: 'Science and Technology',
-        checked: false
-      },
-      {
-        value: 'Health and Wellness',
-        label: 'Health and Wellness',
-        checked: false
-      },
-      {
-        value: 'Childrens Books',
-        label: 'Childrens Books',
-        checked: false
-      },
-      {
-        value: 'Literature and Poetry',
-        label: 'Literature and Poetry',
-        checked: false
-      },
-      {
-        value: 'A K M Azizul Haque',
-        label: 'A K M Azizul Haque',
-        checked: false
-      },
-      {
-        value: 'Politics and Social Sciences',
-        label: 'Politics and Social Sciences',
-        checked: false
-      }
-    ],
-  }]
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-// import styles from './Counter.module.css';
 
 
 // product list item
@@ -143,11 +59,25 @@ export default function BooksList() {
   const dispatch = useDispatch();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const products =useSelector(selectAllProducts)
-  console.log(products)
+  const AuthorName =useSelector(selectAllAuthorName)
+  const category =useSelector(selectAllCategory)
+  const filters = [
+    {
+      id: 'AuthorName',
+      name: 'AuthorName',
+      options: AuthorName,
+     
+    },
+    {
+      id: 'category',
+      name: 'category',
+      options: category,
+    },
+  ];
   const [sort, setSort] = useState({});
   const [filter,setFilter]=useState({});
 
-
+// for filter
    const handleFilter=(e,section,option)=>{
     console.log(e.target.checked)
     const newFilter = {...filter};
@@ -167,16 +97,28 @@ export default function BooksList() {
     
   };
 
-  const handleSort = (e, option) => {
+  // for sorting 
+  const handleSort = (e,option) => {
     const sort = { _sort: option.sort, _order: option.order };
-    console.log({sort});
     setSort(sort);
+    console.log('Sorting by:', sort); // Debug log
   };
+  // for pagination
+  // const handlePage = (page) => { 
+  //   setPage(page);
+  //   console.log({page})
+
+  // };
   
   useEffect(()=>{
-    dispatch(fetchProductsByFiltersAsync({filter, sort}));
-  }, [dispatch,filter])
-
+    dispatch(fetchProductsByFiltersAsync({filter, sort,}));
+  }, [dispatch,filter,sort])
+  // for author name fetch 
+  useEffect(()=>{
+    dispatch(fetchAuthorNameAsync())
+    dispatch(fetchCategoryAsync())
+  }, [])
+  
 
   // multiple filter
   // const handleFilter = (e, section, option) => {
@@ -223,7 +165,9 @@ export default function BooksList() {
             <div>
               {/*start Mobile filter dialog function */}
           
-              <MobileFilter handleFilter={handleFilter} mobileFiltersOpen={mobileFiltersOpen} setMobileFiltersOpen={setMobileFiltersOpen}></MobileFilter> 
+              <MobileFilter handleFilter={handleFilter} mobileFiltersOpen={mobileFiltersOpen} setMobileFiltersOpen={setMobileFiltersOpen}
+              filters={filters}
+              ></MobileFilter> 
 
               <main className="mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
@@ -293,7 +237,9 @@ export default function BooksList() {
                   <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
 
                     {/* start DesktopFilter function */}
-                    <DesktopFilter handleFilter={handleFilter}></DesktopFilter> 
+                    <DesktopFilter handleFilter={handleFilter}
+                     filters={filters}
+                     ></DesktopFilter> 
                     
               
 
@@ -308,7 +254,11 @@ export default function BooksList() {
           </section>
           {/* all Bookslist end  */}
           {/* start pagination */}
-          <Pagination></Pagination>
+          {/* <Pagination page={page} 
+          setPage={setPage}
+           handlePage={handlePage}
+           totalBooks={totalBooks}
+           ></Pagination> */}
          
         </main>
       </div>
@@ -319,7 +269,7 @@ export default function BooksList() {
 }
 
 // make different function for easy to use comment 
-function MobileFilter({mobileFiltersOpen, setMobileFiltersOpen,handleFilter}){
+function MobileFilter({mobileFiltersOpen, setMobileFiltersOpen,handleFilter,filters}){
   return (
     <Transition show={mobileFiltersOpen}>
     <Dialog className="relative z-40 lg:hidden" onClose={setMobileFiltersOpen}>
@@ -399,7 +349,7 @@ function MobileFilter({mobileFiltersOpen, setMobileFiltersOpen,handleFilter}){
   );
 }
 
- function DesktopFilter({handleFilter}){
+ function DesktopFilter({handleFilter,filters}){
   return (
     <form className="hidden lg:block">
     {filters.map((section) => (
@@ -504,65 +454,66 @@ function BooksCard({products}){
   );
 }
 
-function Pagination(){
-  return(
-    <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
-    <div className="flex flex-1 justify-between sm:hidden">
-      <a
-        href="#"
-        className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-      >
-        Previous
-      </a>
-      <a
-        href="#"
-        className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-      >
-        Next
-      </a>
-    </div>
-    <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
-      <div>
-        <p className="text-sm text-gray-700">
-          Showing <span className="font-medium">1</span> to <span className="font-medium">10</span> of{' '}
-          <span className="font-medium">97</span> results
-        </p>
-      </div>
-      <div>
-        <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
-          <a
-            href="#"
-            className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-          >
-            <span className="sr-only">Previous</span>
-            <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
-          </a>
-          {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
-          <a
-            href="#"
-            aria-current="page"
-            className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            1
-          </a>
-          <a
-            href="#"
-            className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-          >
-            2
-          </a>
-         
-          <a
-            href="#"
-            className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-          >
-            <span className="sr-only">Next</span>
-            <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
-          </a>
-        </nav>
-      </div>
-    </div>
-  </div>
-  );
-}
+// function Pagination({page,setPage,handlePage,totalBooks}){
+//   return(
+//     <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+//     <div className="flex flex-1 justify-between sm:hidden">
+//       <a
+//         href="#"
+//         className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+//       >
+//         Previous
+//       </a>
+//       <a
+//         href="#"
+//         className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+//       >
+//         Next
+//       </a>
+//     </div>
+//     <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+//       <div>
+//         <p className="text-sm text-gray-700">
+//           Showing <span className="font-medium">{(page-1)*Books_Par_Page+1}</span> to <span className="font-medium">{page*Books_Par_Page}</span> of{' '}
+//           <span className="font-medium">{totalBooks}</span> results
+//         </p>
+//       </div>
+//       <div>
+//         <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+//           <div
+//             href="#"
+//             className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+//           >
+//             <span className="sr-only">Previous</span>
+//             <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
+//           </div>
+//           {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
+//           {Array.from({ length:Math.ceil(totalBooks / Books_Par_Page) }).map(
+//             (el, index) => (
+//                 <div
+//                   onClick={(e) => handlePage(index + 1)}
+//                   aria-current="page"
+//                   className={`relative cursor-pointer z-10 inline-flex items-center ${
+//                     index + 1 === page
+//                       ? 'bg-indigo-600 text-white'
+//                       : 'text-gray-400'
+//                   } px-4 py-2 text-sm font-semibold  focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
+//                 >
+//                   {index + 1}
+//                 </div>
+//               )
+//             )}
 
+//             <a
+//               href="#"
+//               className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+//             >
+//               <span className="sr-only">Next</span>
+//               <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
+//             </a>
+//           </nav>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }

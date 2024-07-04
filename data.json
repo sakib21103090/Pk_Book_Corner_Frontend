@@ -4,10 +4,10 @@
         "id": 1,
         "BookName": "বাংলাদেশের মুক্তিযুদ্ধ",
         "description": "Description for Book 1",
-        "price": 120,
+        "price": 10,
         "discountPercentage": 10.5,
         "rating": 3.1,
-        "stock": 105,
+        "stock": 109,
         "AuthorName": "Mohammad Zakaria",
         "category": "Educational Books",
         "images": "https://i.ibb.co/pnGJwLn/image.png"
@@ -18,7 +18,7 @@
         "description": "Description for Book 2",
         "price": 140,
         "discountPercentage": 11.0,
-        "rating": 3.2,
+        "rating": 4,
         "stock": 110,
         "AuthorName": "Muhammed Zafar Iqbal",
         "category": "Science and Technology",
@@ -28,21 +28,22 @@
         "id": 3,
         "BookName": "Mohakash",
         "description": "Description for Book 3",
-        "price": 160,
+        "price": 130,
         "discountPercentage": 11.5,
-        "rating": 3.3,
+        "rating": 3.4,
         "stock": 115,
         "AuthorName": "Asif Azim",
         "category": "Science and Technology",
         "images": "https://i.ibb.co/pnGJwLn/image.png"
     },
+    
     {
         "id": 4,
         "BookName": "স্বাস্থ্য কথা",
         "description": "Description for Book 4",
-        "price": 180,
+        "price": 120,
         "discountPercentage": 12.0,
-        "rating": 3.4,
+        "rating": 3.1,
         "stock": 120,
         "AuthorName": "Dr. Zafrullah Chowdhury",
         "category": "Health and Wellness",
@@ -52,7 +53,7 @@
         "id": 5,
         "BookName": "ঠাকুরমার ঝুলি",
         "description": "Description for Book 5",
-        "price": 200,
+        "price": 100,
         "discountPercentage": 12.5,
         "rating": 3.5,
         "stock": 125,
@@ -60,6 +61,7 @@
         "category": "Childrens Books",
         "images": "https://i.ibb.co/pnGJwLn/image.png"
     },
+    
     {
         "id": 6,
         "BookName": "গীতাঞ্জলি",
@@ -170,5 +172,100 @@
         "images": "https://i.ibb.co/pnGJwLn/image.png"
     }
     
-    ]
+    ],
+    "AuthorName":[
+        {
+          "value": "Mohammad Zakaria",
+          "label": "Mohammad Zakaria",
+          "checked": false
+        },
+        {
+          "value": "Muhammed Zafar Iqbal",
+          "label": "Muhammed Zafar Iqbal",
+          "checked": false
+        },
+        {
+          "value": "Asif Azim",
+          "label": "Asif Azim",
+          "checked": false
+        },
+        {
+          "value": "Dr. Zafrullah Chowdhury",
+          "label": "Dr. Zafrullah Chowdhury",
+          "checked": false
+        },
+        {
+          "value": "Dakshinaranjan Mitra Majumder",
+          "label": "Dakshinaranjan Mitra Majumder",
+          "checked": false
+        },
+        {
+          "value": "গীতগোবিন্দ",
+          "label": "গীতগোবিন্দ",
+          "checked": false
+        },
+        {
+          "value": "Hasan Azizul Haque",
+          "label": "Hasan Azizul Haque",
+          "checked": false
+        },
+        {
+          "value": "A K M Azizul Haque",
+          "label": "A K M Azizul Haque",
+          "checked": false
+        },
+        {
+          "value": "অরুন্ধতী রায়",
+          "label": "অরুন্ধতী রায়",
+          "checked": false
+        },
+        {
+          "value": "Dr. Tahmina Banu",
+          "label": "Dr. Tahmina Banu",
+          "checked": false
+        },
+        {
+          "value": "Gazi Abdul Hakim",
+          "label": "Gazi Abdul Hakim",
+          "checked": false
+        },
+        {
+          "value": "রবীন্দ্রনাথ ঠাকুর ",
+          "label": "রবীন্দ্রনাথ ঠাকুর ",
+          "checked": false
+        }
+      ], 
+      "category":[
+        {
+          "value": "Educational Books",
+          "label": "Educational Books",
+          "checked": false
+        },
+        {
+          "value": "Science and Technology",
+          "label": "Science and Technology",
+          "checked": false
+        },
+        {
+          "value": "Health and Wellness",
+          "label": "Health and Wellness",
+          "checked": false
+        },
+        {
+          "value": "Childrens Books",
+          "label": "Childrens Books",
+          "checked": false
+        },
+        {
+          "value": "Literature and Poetry",
+          "label": "Literature and Poetry",
+          "checked": false
+        },
+        {
+          "value": "Politics and Social Sciences",
+          "label": "Politics and Social Sciences",
+          "checked": false
+        }
+      ]
+
 }

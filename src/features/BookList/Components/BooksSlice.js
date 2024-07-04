@@ -1,8 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchAllProducts,fetchProductsByFilters } from './BooksListApi';
+import { fetchAllProducts,fetchProductsByFilters,fetchAuthorName, fetchCategory} from './BooksListApi';
 
 const initialState = {
   products: [],
+  AuthorName:[],
+  category:[],
   status: 'idle',
 };
 
@@ -16,9 +18,26 @@ export const fetchAllProductsAsync = createAsyncThunk(
   }
 );
 export const fetchProductsByFiltersAsync = createAsyncThunk(
-  'product/fetchProductsByFiltersAsync',
+  'product/fetchProductsByFilters',
 async ({filter,sort}) => {
     const response = await fetchProductsByFilters(filter,sort);
+    // The value we return becomes the `fulfilled` action payload
+    return response.data;
+  }
+);
+
+export const fetchAuthorNameAsync = createAsyncThunk(
+  'product/fetchAuthorName',
+async () => {
+    const response = await fetchAuthorName();
+    // The value we return becomes the `fulfilled` action payload
+    return response.data;
+  }
+);
+export const fetchCategoryAsync = createAsyncThunk(
+  'product/fetchCategory',
+async () => {
+    const response = await fetchCategory();
     // The value we return becomes the `fulfilled` action payload
     return response.data;
   }
@@ -49,12 +68,30 @@ export const BooksSlice = createSlice({
       .addCase(fetchProductsByFiltersAsync.fulfilled, (state, action) => {
         state.status = 'idle';
         state.products = action.payload;
-      });
+      })
+      // for fetch authorName
+      .addCase(fetchAuthorNameAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchAuthorNameAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.AuthorName = action.payload;
+      })
+      // for fetch category
+      .addCase(fetchCategoryAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchCategoryAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.category = action.payload;
+      })
   },
 });
 
 export const { increment } = BooksSlice.actions;
 
 export const selectAllProducts = (state) => state.product.products;
+export const selectAllAuthorName = (state) => state.product.AuthorName;
+export const selectAllCategory = (state) => state.product.category;
 
 export default BooksSlice.reducer;

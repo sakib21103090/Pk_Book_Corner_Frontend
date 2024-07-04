@@ -11,6 +11,7 @@ export function fetchAllProducts() {
 export function fetchProductsByFilters(filter,sort) {
     // filter = {"category":"children books"}
     // TODO : on server we will support multi values
+    
     let queryString = '';
     for(let key in filter){
       const categoryValues = filter[key];
@@ -22,7 +23,7 @@ export function fetchProductsByFilters(filter,sort) {
     for(let key in sort){
       queryString += `${key}=${sort[key]}&`
     }
-  
+    
     return new Promise(async (resolve) =>{
       //TODO: we will not hard-code server URL here
       const response = await fetch('http://localhost:8080/products?'+queryString) 
@@ -32,3 +33,20 @@ export function fetchProductsByFilters(filter,sort) {
     );
   }
   
+
+  export function fetchAuthorName() {
+    return new Promise(async (resolve) =>{
+      const response = await fetch('http://localhost:8080/AuthorName') 
+      const data = await response.json()
+      resolve({data})
+    }
+    );
+  }
+  export function fetchCategory() {
+    return new Promise(async (resolve) =>{
+      const response = await fetch('http://localhost:8080/category') 
+      const data = await response.json()
+      resolve({data})
+    }
+    );
+  }

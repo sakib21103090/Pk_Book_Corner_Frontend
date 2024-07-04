@@ -78,8 +78,11 @@ export default function SignUp() {
                         <input type="text" name='password' placeholder="password" className="input input-bordered" required/>
                     </div>
                     <div className="form-control mt-6">
-                        <input className="btn bg-amber-300 text-black" type="submit" value="Create Account" />
+                        <input className="flex items-center text-bold mx-auto px-4 py-2 bg-white border border-gray-300 rounded shadow-sm hover:bg-gray-100" type="submit" value="Create Account" />
                     </div>
+                    <div className='mb-4 '>
+       
+    </div>
                 </form>
                 <GoogleSignup></GoogleSignup>
                 <p className='my-4 text-center'> Already Have an Account? <Link className='text-purple-600 font-bold' to="/login">Login</Link> </p>

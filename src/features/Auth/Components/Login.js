@@ -84,7 +84,7 @@ export default function Login() {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <input className="btn bg-amber-300 text-black" type="submit" value="Login" />
+                                <input className="flex items-center text-bold mx-auto px-4 py-2 bg-white border border-gray-300 rounded shadow-sm hover:bg-gray-100" type="submit" value="Login" />
                             </div>
                         </form>
                         <div>
