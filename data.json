@@ -3,7 +3,7 @@
     {
         "id": 1,
         "BookName": "বাংলাদেশের মুক্তিযুদ্ধ",
-        "description": "Description for Book 1",
+        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 1",
         "price": 10,
         "discountPercentage": 10.5,
         "rating": 3.1,
@@ -15,7 +15,7 @@
     {
         "id": 2,
         "BookName": "আশ্চর্য প্রদীপ",
-        "description": "Description for Book 2",
+        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 2",
         "price": 140,
         "discountPercentage": 11.0,
         "rating": 4,
@@ -27,7 +27,7 @@
     {
         "id": 3,
         "BookName": "Mohakash",
-        "description": "Description for Book 3",
+        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 3",
         "price": 130,
         "discountPercentage": 11.5,
         "rating": 3.4,
@@ -40,7 +40,7 @@
     {
         "id": 4,
         "BookName": "স্বাস্থ্য কথা",
-        "description": "Description for Book 4",
+        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 4",
         "price": 120,
         "discountPercentage": 12.0,
         "rating": 3.1,
@@ -52,7 +52,7 @@
     {
         "id": 5,
         "BookName": "ঠাকুরমার ঝুলি",
-        "description": "Description for Book 5",
+        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 5",
         "price": 100,
         "discountPercentage": 12.5,
         "rating": 3.5,
@@ -65,7 +65,7 @@
     {
         "id": 6,
         "BookName": "গীতাঞ্জলি",
-        "description": "Description for Book 6",
+        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 6",
         "price": 220,
         "discountPercentage": 13.0,
         "rating": 3.6,
@@ -78,7 +78,7 @@
     {
         "id": 8,
         "BookName": "বাংলাদেশ: একাত্তরের জনযুদ্ধ",
-        "description": "Description for Book 8",
+        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 8",
         "price": 260,
         "discountPercentage": 14.0,
         "rating": 3.8,
@@ -90,7 +90,7 @@
     {
         "id": 9,
         "BookName": "পরিবেশ বিজ্ঞান",
-        "description": "Description for Book 9",
+        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 9",
         "price": 280,
         "discountPercentage": 14.5,
         "rating": 3.9,
@@ -102,7 +102,7 @@
     {
         "id": 10,
         "BookName": "Pakistaner Jonmo Mrityu",
-        "description": "Description for Book 10",
+        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 10",
         "price": 300,
         "discountPercentage": 15.0,
         "rating": 4.0,
@@ -114,7 +114,7 @@
     {
         "id": 11,
         "BookName": "মন ও মনের রোগ",
-        "description": "Description for Book 11",
+        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 11",
         "price": 320,
         "discountPercentage": 15.5,
         "rating": 4.1,
@@ -126,7 +126,7 @@
     {
         "id": 12,
         "BookName": "Hatim Tai",
-        "description": "Description for Book 12",
+        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 12",
         "price": 340,
         "discountPercentage": 16.0,
         "rating": 4.2,
@@ -138,7 +138,7 @@
     {
         "id": 13,
         "BookName": "ঘরে বাইরে",
-        "description": "Description for Book 13",
+        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 13",
         "price": 360,
         "discountPercentage": 16.5,
         "rating": 4.3,
@@ -150,7 +150,7 @@
     {
         "id": 14,
         "BookName": "গোরা",
-        "description": "Description for Book 13",
+        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 13",
         "price": 360,
         "discountPercentage": 16.5,
         "rating": 4.3,
@@ -162,7 +162,7 @@
     {
         "id": 15,
         "BookName": "ইতিহাস ও রাজনীতি",
-        "description": "Description for Book 1",
+        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 1",
         "price": 120,
         "discountPercentage": 10.5,
         "rating": 3.1,
