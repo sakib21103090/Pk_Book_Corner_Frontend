@@ -6,6 +6,7 @@ import {
   updateCartAsync,
 } from "./CartSlice";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function Cart() {
   const items = useSelector(selectCartItems);
@@ -15,23 +16,25 @@ export default function Cart() {
   const handleQuantity = (e, item) => {
     dispatch(updateCartAsync({ id: item.id, quantity: +e.target.value }));
   };
-  //   for remove
+
+  // For remove
   const handleRemove = (e, id) => {
     dispatch(deleteItemFromCartAsync(id));
+    Swal.fire("Removed", "Book has been removed from the cart", "success");
   };
 
   const totalAmount = items.reduce((amount, item) => {
-    const discountedPrice = Math.round(
-      item.price * (1 - item.discountPercentage / 100)
-    );
-    return amount + discountedPrice * item.quantity;
+    const price = item.discountPercentage
+      ? Math.round(item.price * (1 - item.discountPercentage / 100))
+      : item.price;
+    return amount + price * item.quantity;
   }, 0);
 
   const totalItems = items.reduce((total, item) => item.quantity + total, 0);
 
   return (
-    <div className="mx-auto mt-12 max-w-7xl px-4   sm:px-6 lg:px-8">
-      <div className="shadow-xl rounded-lg p-6  bg-yellow-50 ">
+    <div className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="shadow-xl rounded-lg p-6 bg-yellow-50">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
             <ul role="list" className="-my-6 divide-y divide-gray-200">
@@ -47,16 +50,19 @@ export default function Cart() {
                   <div className="ml-4 flex flex-1 flex-col">
                     <div>
                       <div className="flex justify-between text-base font-medium text-gray-900">
-                        <h3 className="hover:underline text-xl ">
+                        <h3 className="hover:underline text-xl">
                           {item.BookName}
                         </h3>
-                        <p className="ml-4 text-xl">
-                          {" "}
-                          Price: $
-                          {Math.round(
-                            item.price * (1 - item.discountPercentage / 100)
+                        {item.discountPercentage ? (
+                            <div>
+                              <p className="">
+                              <p>{(item.price - (item.price * item.discountPercentage / 100)).toFixed(2)}Tk</p>
+                              </p>
+                              
+                            </div>
+                          ) : (
+                            <p>{item.price.toFixed(2)}Tk</p>
                           )}
-                        </p>
                       </div>
                       <p className="mt-1 text-sm text-gray-500 flex items-center">
                         <span className="mr-2">Rating:</span>
@@ -101,13 +107,13 @@ export default function Cart() {
             </ul>
           </div>
 
-          <div className="lg:col-span-1  bg-yellow-50 p-6 rounded-lg shadow-md">
+          <div className="lg:col-span-1 bg-yellow-50 p-6 rounded-lg shadow-md">
             <div className="border-b border-gray-200 pb-4 mb-4">
-              <div className="flex text-xl justify-between  font-medium text-gray-900">
+              <div className="flex text-xl justify-between font-medium text-gray-900">
                 <p>Subtotal</p>
-                <p>${totalAmount}</p>
+                <p>{totalAmount}Tk</p>
               </div>
-              <div className="flex text-xl  justify-between  font-medium text-gray-900">
+              <div className="flex text-xl justify-between font-medium text-gray-900">
                 <p>Total books</p>
                 <p>{totalItems}</p>
               </div>
@@ -129,8 +135,7 @@ export default function Cart() {
                     className="font-medium text-indigo-600 hover:text-indigo-500 transition-colors ml-2"
                     onClick={() => setOpen(false)}
                   >
-                    Continue Shopping
-                    <span aria-hidden="true"> &rarr;</span>
+                    <span aria-hidden="true">&larr;</span> Continue Shopping
                   </button>
                 </Link>
               </p>

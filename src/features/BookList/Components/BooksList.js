@@ -4,6 +4,12 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   StarIcon,
+  ChevronDownIcon,
+  FunnelIcon,
+  MinusIcon,
+  PlusIcon,
+  Squares2X2Icon,
+  MagnifyingGlassIcon,
 } from "@heroicons/react/20/solid";
 import {
   fetchAllProductsAsync,
@@ -14,7 +20,6 @@ import {
   selectAllCategory,
   selectAllProducts,
 } from "./BooksSlice";
-
 import {
   Dialog,
   DialogPanel,
@@ -28,16 +33,6 @@ import {
   Transition,
   TransitionChild,
 } from "@headlessui/react";
-
-import {
-  ChevronDownIcon,
-  FunnelIcon,
-  MinusIcon,
-  PlusIcon,
-  Squares2X2Icon,
-  MagnifyingGlassIcon,
-} from "@heroicons/react/20/solid";
-
 import { Link } from "react-router-dom";
 
 const sortOptions = [
@@ -72,12 +67,11 @@ export default function BooksList() {
   ];
   const [sort, setSort] = useState({});
   const [filter, setFilter] = useState({});
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
-  // for filter
   const handleFilter = (e, section, option) => {
-    console.log(e.target.checked);
     const newFilter = { ...filter };
-    // TODO : on server it will support multiple categories
     if (e.target.checked) {
       if (newFilter[section.id]) {
         newFilter[section.id].push(option.value);
@@ -91,60 +85,79 @@ export default function BooksList() {
       newFilter[section.id].splice(index, 1);
     }
     setFilter(newFilter);
-    console.log({ newFilter });
   };
 
-  // for sorting
-  const handleSort = (e, option) => {
-    const sort = { _sort: option.sort, _order: option.order };
-    setSort(sort);
-    console.log("Sorting by:", sort); // Debug log
-  };
-  // for pagination
-  // const handlePage = (page) => {
-  //   setPage(page);
-  //   console.log({page})
+ // for sorting
+ const handleSort = (e, option) => {
+  const sort = { _sort: option.sort, _order: option.order };
+  setSort(sort);
+  console.log("Sorting by:", sort); // Debug log
+};
 
-  // };
+// for search 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    filterProducts();
+  };
+  const filterProducts = () => {
+    let filtered = products;
+
+    if (searchTerm) {
+      filtered = filtered.filter((product) =>
+        product.BookName.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    setFilteredProducts(filtered);
+  };
+  
 
   useEffect(() => {
     dispatch(fetchProductsByFiltersAsync({ filter, sort }));
   }, [dispatch, filter, sort]);
-  // for author name fetch
+
   useEffect(() => {
     dispatch(fetchAuthorNameAsync());
     dispatch(fetchCategoryAsync());
-  }, []);
- 
+  }, [dispatch]);
+
+  useEffect(() => {
+    filterProducts();
+  }, [products, searchTerm]);
+
   return (
     <div>
-      <div className="flex items-center justify-center pb-6 ">
-        <div className="flex border border-gray-300 mt-4 py-2 px-6 bg-white shadow-lg rounded-lg">
-          <input
-            className="appearance-none bg-transparent rounded border-none w-full text-gray-700 mr-3 py-2 px-4 focus:outline-none text-lg font-light"
-            type="text"
-            placeholder="Search..."
-            aria-label="Search"
-          />
-          <button
-            className="flex-shrink-0 bg-yellow-500 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transform transition-transform hover:scale-105 focus:outline-none"
-            type="button"
-          >
-            <MagnifyingGlassIcon className="h-6 w-6 text-white" />
-          </button>
+      <div className="flex items-center justify-center pb-6">
+        <div className="max-w-3xl mx-auto mt-8">
+          <form onSubmit={handleSearch} className="relative">
+            <div className="flex items-center rounded-full shadow-md  bg-yellow-400  hover:shadow-lg transition-shadow duration-300">
+              <input
+                className="w-full px-8 py-2 rounded-full text-gray-700 focus:outline-none placeholder-gray-500 bg-white bg-opacity-50 focus:bg-opacity-100 transition-all duration-300"
+                type="text"
+                placeholder="Search for books..."
+                aria-label="Search"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <button
+                type="submit"
+                className="absolute right-0 top-0 mt-3 mr-4 focus:outline-none"
+              >
+                <MagnifyingGlassIcon className="h-6 w-6 text-gray-700" />
+              </button>
+            </div>
+          </form>
         </div>
       </div>
       <div>
         <div className="bg-white">
           <div>
-            {/*start Mobile filter dialog function */}
-
             <MobileFilter
               handleFilter={handleFilter}
               mobileFiltersOpen={mobileFiltersOpen}
               setMobileFiltersOpen={setMobileFiltersOpen}
               filters={filters}
-            ></MobileFilter>
+            />
 
             <main className="mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
@@ -221,17 +234,14 @@ export default function BooksList() {
                 </h2>
 
                 <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-                  {/* start DesktopFilter function */}
                   <DesktopFilter
                     handleFilter={handleFilter}
                     filters={filters}
-                  ></DesktopFilter>
+                  />
 
                   <div className="lg:col-span-3">
-                    {/* all books for sell */}
                     <div className="bg-white">
-                      {/*  start boooks  grid function */}
-                      <BooksCard products={products}></BooksCard>
+                      <BooksCard products={filteredProducts} />
                     </div>
                   </div>
                 </div>
@@ -413,12 +423,12 @@ function BooksCard({ products }) {
   };
 
   return (
-   <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
+    <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
       <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
         {products.slice(0, visibleProducts).map((product) => (
           <Link to={`/booksinfopage/${product.id}`} key={product.id}>
             <div className="group relative border-solid h-[480px] border-2 p-2 bg-gradient-to-br  from-yellow-100 to-gray-100 border--200">
-              <div className="w-full h-[400px] overflow-hidden rounded-md bg-gray-200 ">
+              <div className="w-full h-[380px] overflow-hidden rounded-md bg-gray-200 ">
                 <img
                   src={product.images}
                   alt={product.BookName}
@@ -433,22 +443,40 @@ function BooksCard({ products }) {
                   </h3>
                   <p className="mt-1 text-sm ">
                     <StarIcon className="w-6 text-yellow-400 h-6 inline"></StarIcon>
-                    <span className="align-bottom text-black">{product.rating}</span>
+                    <span className="align-bottom text-black">
+                      {product.rating}
+                    </span>
                   </p>
                 </div>
                 <div>
-                  <p className=" block font-medium text-gray-900">
-                  Price: ${Math.round(product.price * (1 - product.discountPercentage / 100))}
-                  </p>
-                  <p className="text-sm block line-through font-medium text-red-400">
-                    ${product.price}
-                  </p>
+                  {product.discountPercentage ? (
+                    <div className="mt-1">
+                      <p className="text-sm block line-through font-medium text-red-400">
+                        <span>{product.price}Tk</span>
+                      </p>
+                      <p className="text-sm block font-medium text-green-600">
+                        Discount: {product.discountPercentage}%
+                      </p>
+                      <p className="text-xl font-medium text-gray-900">
+                        Price:
+                        {product.price -
+                          (
+                            (product.price * product.discountPercentage) /
+                            100
+                          ).toFixed(2)}Tk
+                      </p>
+                    </div>
+                  ) : (
+                    <p className="mt-1 text-xl font-medium text-gray-900">
+                      Price:{product.price}Tk
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
           </Link>
-    ))}
-  </div>
+        ))}
+      </div>
       {visibleProducts < products.length && (
         <div className="mt-8 flex justify-center">
           <button

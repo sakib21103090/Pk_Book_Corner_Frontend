@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { fetchProductsByIdAsync, selectedProductById } from "./BooksSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -58,15 +58,18 @@ export default function BooksInfo() {
             {/* Options */}
             <div className="mt-4 lg:row-span-3 lg:mt-0">
               <h2 className="sr-only">Book information</h2>
-              <p className="text-2xl font-bold text-gray-900">
-                Book Price: $
-                {Math.round(
-                  product.price * (1 - product.discountPercentage / 100)
-                )}
-              </p>
-              <p className="block line-through text-2xl text-red-400">
-                ${product.price}
-              </p>
+              {product.discountPercentage ? (
+                <div className="mt-1">
+                  <p className="text-lg font-medium text-gray-900">
+                    {(product.price - (product.price * product.discountPercentage / 100)).toFixed(2)}Tk
+                  </p>
+                </div>
+              ) : (
+                <p className="mt-1 text-lg font-medium text-gray-900">
+                  Price:{product.price.toFixed(2)}Tk
+                </p>
+              )}
+              
               {/* rating */}
               <div className="mt-4 flex items-center">
                 {[0, 1, 2, 3, 4].map((rating) => (
@@ -95,14 +98,16 @@ export default function BooksInfo() {
                   </h3>
                 </div>
 
-                {/* discountPercentage */}
-                <div className="mt-10">
-                  <div className="flex items-center justify-between">
-                    <span className="ml-2 text-2xl font-medium text-red-500">
-                      {product.discountPercentage}% OFF
-                    </span>
+                {product.discountPercentage > 0 && (
+                  <div className="mt-10">
+                    <div className="flex items-center justify-between">
+                      <span className="ml-2 text-2xl font-medium text-red-500">
+                        {product.discountPercentage}% OFF
+                      </span>
+                    </div>
                   </div>
-                </div>
+                )}
+                
                 <button
                   onClick={handleCart}
                   type="submit"
@@ -123,10 +128,8 @@ export default function BooksInfo() {
 
             <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200  lg:pb-16 lg:pr-8 lg:pt-6">
               {/* Description and details */}
-
               <div>
                 <h3 className="sr-only">Image</h3>
-
                 <div className="mt-6">
                   <img
                     src={product.images}
@@ -136,13 +139,10 @@ export default function BooksInfo() {
                 </div>
               </div>
 
-              <div className="mt-10"></div>
-
               <div className="mt-10">
                 <h2 className="text-sm font-medium text-gray-900">
                   Description
                 </h2>
-
                 <div className="mt-4 space-y-6">
                   <p className="text-sm text-gray-600">{product.description}</p>
                 </div>
