@@ -118,7 +118,7 @@ export default function BooksList() {
  
   return (
     <div>
-      <div className="flex items-center justify-center pb-6">
+      <div className="flex items-center justify-center pb-6 ">
         <div className="flex border border-gray-300 mt-4 py-2 px-6 bg-white shadow-lg rounded-lg">
           <input
             className="appearance-none bg-transparent rounded border-none w-full text-gray-700 mr-3 py-2 px-4 focus:outline-none text-lg font-light"
@@ -413,52 +413,47 @@ function BooksCard({ products }) {
   };
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
+   <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
       <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
         {products.slice(0, visibleProducts).map((product) => (
           <Link to={`/booksinfopage/${product.id}`} key={product.id}>
-            <div className="group relative border-solid border-2 p-2 border-gray-200">
-              <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
+            <div className="group relative border-solid h-[480px] border-2 p-2 bg-gradient-to-br  from-yellow-100 to-gray-100 border--200">
+              <div className="w-full h-[400px] overflow-hidden rounded-md bg-gray-200 ">
                 <img
                   src={product.images}
                   alt={product.BookName}
-                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                  className="h-full w-full object-cover object-center"
                 />
               </div>
               <div className="mt-4 flex justify-between">
                 <div>
-                  <h3 className="text-sm text-gray-700">
-                    <a href={product.images}>
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {product.BookName}
-                    </a>
+                  <h3 className="text-sm font-bold text-black">
+                    <span aria-hidden="true" className="absolute inset-0 " />
+                    {product.BookName}
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500">
-                    <StarIcon className="w-6 h-6 inline"></StarIcon>
-                    <span className=" align-bottom">{product.rating}</span>
+                  <p className="mt-1 text-sm ">
+                    <StarIcon className="w-6 text-yellow-400 h-6 inline"></StarIcon>
+                    <span className="align-bottom text-black">{product.rating}</span>
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm block font-medium text-gray-900">
-                    $
-                    {Math.round(
-                      product.price * (1 - product.discountPercentage / 100)
-                    )}
+                  <p className=" block font-medium text-gray-900">
+                  Price: ${Math.round(product.price * (1 - product.discountPercentage / 100))}
                   </p>
-                  <p className="text-sm block line-through font-medium text-gray-400">
+                  <p className="text-sm block line-through font-medium text-red-400">
                     ${product.price}
                   </p>
                 </div>
               </div>
             </div>
           </Link>
-        ))}
-      </div>
+    ))}
+  </div>
       {visibleProducts < products.length && (
         <div className="mt-8 flex justify-center">
           <button
             onClick={showMoreProducts}
-            className="mt-10  relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-medium text-white bg-gray-800 rounded-lg group"
+            className="mt-10  relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-medium text-black bg-yellow-500 rounded-lg group"
           >
             <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-500 rounded-full group-hover:w-56 group-hover:h-56"></span>
             <span className="relative">Show More</span>

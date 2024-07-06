@@ -1,20 +1,33 @@
-
-import * as React from "react";
 import "./index.css";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import { router } from "./Routes/Router";
-import AuthProviders from "./Providers/AuthProviders";
+import AuthProviders, { AuthContext } from "./Providers/AuthProviders";
+import { useDispatch } from "react-redux";
+import { useContext, useEffect } from "react";
+import { fetchItemsByUserIdAsync } from "./features/Cart/CartSlice";
+
+function AppContent() {
+  const { user } = useContext(AuthContext);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (user) {
+      dispatch(fetchItemsByUserIdAsync(user.uid));
+    }
+  }, [dispatch, user]);
+
+  return (
+    <div className="App max-w-screen-2xl mx-auto ">
+      <RouterProvider router={router} />
+    </div>
+  );
+}
 
 function App() {
   return (
-   <AuthProviders>
-     <div className="App max-w-screen-2xl mx-auto ">
-      <RouterProvider router={router} />
-    </div>
-   </AuthProviders>
+    <AuthProviders>
+      <AppContent />
+    </AuthProviders>
   );
 }
 

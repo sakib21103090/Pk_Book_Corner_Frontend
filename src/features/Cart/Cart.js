@@ -1,77 +1,66 @@
-// import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
- 
-  increment,
-  incrementAsync,
-  selectCount,
-} from './CartSlice';
-import { Fragment, useState } from 'react'
-import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react'
-import { XMarkIcon } from '@heroicons/react/24/outline'
-import { Link } from 'react-router-dom';
-
-const products = [
-  {
-    id: 1,
-    name: 'book',
-    href: '#',
-    price: '$90.00',
-    quantity: 1,
-    imageSrc: 'https://i.ibb.co/VQhWKy0/image.png',
-    imageAlt: 'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.',
-  },
-  {
-    id: 2,
-    name: 'book',
-    href: '#',
-    price: '$32.00',
-    quantity: 1,
-    imageSrc: 'https://i.ibb.co/VQhWKy0/image.png',
-    imageAlt:
-      'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
-  },
-  // More products...
-]
-// import styles from './Counter.module.css';
+  deleteItemFromCartAsync,
+  selectCartItems,
+  updateCartAsync,
+} from "./CartSlice";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
-  const count = useSelector(selectCount);
+  const items = useSelector(selectCartItems);
   const dispatch = useDispatch();
-  const [open, setOpen] = useState(true)
-  
+  const [open, setOpen] = useState(true);
 
+  const handleQuantity = (e, item) => {
+    dispatch(updateCartAsync({ id: item.id, quantity: +e.target.value }));
+  };
+  //   for remove
+  const handleRemove = (e, id) => {
+    dispatch(deleteItemFromCartAsync(id));
+  };
+
+  const totalAmount = items.reduce((amount, item) => {
+    const discountedPrice = Math.round(
+      item.price * (1 - item.discountPercentage / 100)
+    );
+    return amount + discountedPrice * item.quantity;
+  }, 0);
+
+  const totalItems = items.reduce((total, item) => item.quantity + total, 0);
 
   return (
-    <>
-    <div>
-      <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
-          <h1 className="text-4xl my-5 font-bold tracking-tight text-gray-900">
-            Cart
-          </h1>
-          <div className="flow-root">
+    <div className="mx-auto mt-12 max-w-7xl px-4   sm:px-6 lg:px-8">
+      <div className="shadow-xl rounded-lg p-6  bg-yellow-50 ">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2">
             <ul role="list" className="-my-6 divide-y divide-gray-200">
-              {products.map((product) => (
-                <li key={product.id} className="flex py-6">
-                  <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+              {items.map((item) => (
+                <li key={item.id} className="flex py-6">
+                  <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-lg border border-gray-200 shadow-md">
                     <img
-                      src={product.imageSrc}
-                      alt={product.imageAlt}
-                      className="h-full w-full object-cover object-center"
+                      src={item.images}
+                      alt={item.BookName}
+                      className="h-full w-full object-cover object-center transition-transform transform hover:scale-110"
                     />
                   </div>
-
                   <div className="ml-4 flex flex-1 flex-col">
                     <div>
                       <div className="flex justify-between text-base font-medium text-gray-900">
-                        <h3>
-                          <a href={product.href}>{product.name}</a>
+                        <h3 className="hover:underline text-xl ">
+                          {item.BookName}
                         </h3>
-                        <p className="ml-4">{product.price}</p>
+                        <p className="ml-4 text-xl">
+                          {" "}
+                          Price: $
+                          {Math.round(
+                            item.price * (1 - item.discountPercentage / 100)
+                          )}
+                        </p>
                       </div>
-                      <p className="mt-1 text-sm text-gray-500">
-                        {product.color}
+                      <p className="mt-1 text-sm text-gray-500 flex items-center">
+                        <span className="mr-2">Rating:</span>
+                        <span className="text-yellow-400">★ {item.rating}</span>
                       </p>
                     </div>
                     <div className="flex flex-1 items-end justify-between text-sm">
@@ -82,16 +71,25 @@ export default function Cart() {
                         >
                           Qty
                         </label>
-                        <select>
+                        <select
+                          onChange={(e) => handleQuantity(e, item)}
+                          value={item.quantity}
+                          className="rounded-md border-gray-300 shadow-sm"
+                        >
                           <option value="1">1</option>
                           <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
                         </select>
                       </div>
-
                       <div className="flex">
                         <button
+                          onClick={(e) => {
+                            handleRemove(e, item.id);
+                          }}
                           type="button"
-                          className="font-medium text-indigo-600 hover:text-indigo-500"
+                          className="font-medium text-white bg-indigo-600 hover:bg-indigo-500 transition-colors px-4 py-2 rounded-full shadow-md"
                         >
                           Remove
                         </button>
@@ -102,43 +100,44 @@ export default function Cart() {
               ))}
             </ul>
           </div>
-        </div>
 
-        <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
-          <div className="flex justify-between text-base font-medium text-gray-900">
-            <p>Subtotal</p>
-            <p>$262.00</p>
-          </div>
-          <p className="mt-0.5 text-sm text-gray-500">
-            Shipping and taxes calculated at checkout.
-          </p>
-          <div className="mt-6">
-          <Link
+          <div className="lg:col-span-1  bg-yellow-50 p-6 rounded-lg shadow-md">
+            <div className="border-b border-gray-200 pb-4 mb-4">
+              <div className="flex text-xl justify-between  font-medium text-gray-900">
+                <p>Subtotal</p>
+                <p>${totalAmount}</p>
+              </div>
+              <div className="flex text-xl  justify-between  font-medium text-gray-900">
+                <p>Total books</p>
+                <p>{totalItems}</p>
+              </div>
+            </div>
+            <div className="mt-6">
+              <Link
                 to="/checkoutpage"
-                className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 transition-colors"
               >
                 Checkout
-              
               </Link>
-          </div>
-          <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
-            <p>
-              or
-              <Link to="/">
-              <button
-                type="button"
-                className="font-medium text-indigo-600 hover:text-indigo-500"
-                onClick={() => setOpen(false)}
-              >
-                Continue Shopping
-                <span aria-hidden="true"> &rarr;</span>
-              </button>
-              </Link>
-            </p>
+            </div>
+            <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
+              <p>
+                or
+                <Link to="/">
+                  <button
+                    type="button"
+                    className="font-medium text-indigo-600 hover:text-indigo-500 transition-colors ml-2"
+                    onClick={() => setOpen(false)}
+                  >
+                    Continue Shopping
+                    <span aria-hidden="true"> &rarr;</span>
+                  </button>
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </>
   );
 }

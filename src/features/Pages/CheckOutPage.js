@@ -1,43 +1,44 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const products = [
-    {
-        id: 1,
-        name: 'book',
-        href: '#',
-        price: '$90.00',
-        quantity: 1,
-        imageSrc: 'https://i.ibb.co/VQhWKy0/image.png',
-        imageAlt: 'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.',
-      },
-      {
-        id: 2,
-        name: 'book',
-        href: '#',
-        price: '$32.00',
-        quantity: 1,
-        imageSrc: 'https://i.ibb.co/VQhWKy0/image.png',
-        imageAlt:
-          'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
-      },
+  {
+    id: 1,
+    name: "book",
+    href: "#",
+    price: "$90.00",
+    quantity: 1,
+    imageSrc: "https://i.ibb.co/VQhWKy0/image.png",
+    imageAlt:
+      "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
+  },
+  {
+    id: 2,
+    name: "book",
+    href: "#",
+    price: "$32.00",
+    quantity: 1,
+    imageSrc: "https://i.ibb.co/VQhWKy0/image.png",
+    imageAlt:
+      "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
+  },
   // More products...
 ];
 
 const addresses = [
   {
-    name: 'sakib ',
-    street: '10',
-    city: 'dhaka',
+    name: "sakib ",
+    street: "10",
+    city: "dhaka",
     pinCode: 111,
-    state: 'Uttra',
+    state: "Uttra",
     phone: 111111,
   },
   {
-    name: 'sakib ',
-    street: '10',
-    city: 'dhaka',
+    name: "sakib ",
+    street: "10",
+    city: "dhaka",
     pinCode: 111,
-    state: 'Uttra',
+    state: "Uttra",
     phone: 111111,
   },
 ];
@@ -207,23 +208,23 @@ function CheckOutPage() {
               </div>
 
               <div className="mt-6 flex items-center justify-end gap-x-6">
-              <button
-                type="button"
-                className="text-sm font-semibold leading-6 text-gray-900"
-              >
-                Reset
-              </button>
-              <button
-                type="submit"
-                className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Add Address
-              </button>
-            </div>
+                <button
+                  type="button"
+                  className="text-sm font-semibold leading-6 text-gray-900"
+                >
+                  Reset
+                </button>
+                <button
+                  type="submit"
+                  className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Add Address
+                </button>
+              </div>
 
               <div className="border-b border-gray-900/10 pb-12">
                 <h2 className="text-base font-semibold leading-7 text-gray-900">
-                Addresses
+                  Addresses
                 </h2>
                 <p className="mt-1 text-sm leading-6 text-gray-600">
                   Choose from Existing addresses
@@ -306,8 +307,6 @@ function CheckOutPage() {
                 </div>
               </div>
             </div>
-
-
           </form>
         </div>
         <div className="lg:col-span-2">

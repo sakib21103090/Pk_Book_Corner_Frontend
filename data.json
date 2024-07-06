@@ -1,415 +1,300 @@
 {
-    "products": [
+  "products": [
     {
-        "id": 1,
-        "BookName": "বাংলাদেশের মুক্তিযুদ্ধ",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 1",
-        "price": 10,
-        "discountPercentage": 10.5,
-        "rating": 3.1,
-        "stock": 109,
-        "AuthorName": "Mohammad Zakaria",
-        "category": "Educational Books",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
+      "id": "1",
+      "BookName": "বাংলাদেশের মুক্তিযুদ্ধ",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 1",
+      "price": 10,
+      "discountPercentage": 10.5,
+      "rating": 3.1,
+      "stock": 109,
+      "AuthorName": "Mohammad Zakaria",
+      "category": "Educational Books",
+      "images": "https://i.ibb.co/WtQNb0p/image.jpg"
     },
     {
-        "id": 2,
-        "BookName": "আশ্চর্য প্রদীপ",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 2",
-        "price": 140,
-        "discountPercentage": 11.0,
-        "rating": 4,
-        "stock": 110,
-        "AuthorName": "Muhammed Zafar Iqbal",
-        "category": "Science and Technology",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
+      "id": "2",
+      "BookName": "আশ্চর্য প্রদীপ",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 2",
+      "price": 140,
+      "discountPercentage": 11,
+      "rating": 4,
+      "stock": 110,
+      "AuthorName": "Muhammed Zafar Iqbal",
+      "category": "Science and Technology",
+      "images": "https://i.ibb.co/HP1zQvN/Aladiner-Acharjo-Prodip.png"
     },
     {
-        "id": 3,
-        "BookName": "Mohakash",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 3",
-        "price": 130,
-        "discountPercentage": 11.5,
-        "rating": 3.4,
-        "stock": 115,
-        "AuthorName": "Asif Azim",
-        "category": "Science and Technology",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
-    },
-    
-    {
-        "id": 4,
-        "BookName": "স্বাস্থ্য কথা",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 4",
-        "price": 120,
-        "discountPercentage": 12.0,
-        "rating": 3.1,
-        "stock": 120,
-        "AuthorName": "Dr. Zafrullah Chowdhury",
-        "category": "Health and Wellness",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
+      "id": "3",
+      "BookName": "Mohakash",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 3",
+      "price": 130,
+      "discountPercentage": 11.5,
+      "rating": 3.4,
+      "stock": 115,
+      "AuthorName": "Asif Azim",
+      "category": "Science and Technology",
+      "images": "https://i.ibb.co/GQgZGQY/mohabisso.jpg"
     },
     {
-        "id": 4,
-        "BookName": "স্বাস্থ্য কথা",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 4",
-        "price": 120,
-        "discountPercentage": 12.0,
-        "rating": 3.1,
-        "stock": 120,
-        "AuthorName": "Dr. Zafrullah Chowdhury",
-        "category": "Health and Wellness",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
+      "id": "4",
+      "BookName": "স্বাস্থ্য কথা",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 4",
+      "price": 120,
+      "discountPercentage": 12,
+      "rating": 3.1,
+      "stock": 120,
+      "AuthorName": "Dr. Zafrullah Chowdhury",
+      "category": "Health and Wellness",
+      "images": "https://i.ibb.co/3Rxdpc1/image.png"
     },
     {
-        "id": 4,
-        "BookName": "স্বাস্থ্য কথা",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 4",
-        "price": 120,
-        "discountPercentage": 12.0,
-        "rating": 3.1,
-        "stock": 120,
-        "AuthorName": "Dr. Zafrullah Chowdhury",
-        "category": "Health and Wellness",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
+      "id": "5",
+      "BookName": "ঠাকুরমার ঝুলি",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 5",
+      "price": 100,
+      "discountPercentage": 12.5,
+      "rating": 3.5,
+      "stock": 125,
+      "AuthorName": "Dakshinaranjan Mitra Majumder",
+      "category": "Childrens Books",
+      "images": "https://i.ibb.co/PgHhgPY/image.png"
     },
     {
-        "id": 4,
-        "BookName": "স্বাস্থ্য কথা",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 4",
-        "price": 120,
-        "discountPercentage": 12.0,
-        "rating": 3.1,
-        "stock": 120,
-        "AuthorName": "Dr. Zafrullah Chowdhury",
-        "category": "Health and Wellness",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
+      "id": "6",
+      "BookName": "গীতাঞ্জলি",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 6",
+      "price": 220,
+      "discountPercentage": 13,
+      "rating": 3.6,
+      "stock": 130,
+      "AuthorName": "গীতগোবিন্দ",
+      "category": "Literature and Poetry",
+      "images": "https://i.ibb.co/DpgHQ06/image.png"
     },
     {
-        "id": 4,
-        "BookName": "স্বাস্থ্য কথা",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 4",
-        "price": 120,
-        "discountPercentage": 12.0,
-        "rating": 3.1,
-        "stock": 120,
-        "AuthorName": "Dr. Zafrullah Chowdhury",
-        "category": "Health and Wellness",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
+      "id": "8",
+      "BookName": "একাত্তরের জনযুদ্ধ",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 8",
+      "price": 260,
+      "discountPercentage": 14,
+      "rating": 3.8,
+      "stock": 140,
+      "AuthorName": "Hasan Azizul Haque",
+      "category": "Educational Books",
+      "images": "https://i.ibb.co/VvhHMZ7/image.png"
     },
     {
-        "id": 4,
-        "BookName": "স্বাস্থ্য কথা",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 4",
-        "price": 120,
-        "discountPercentage": 12.0,
-        "rating": 3.1,
-        "stock": 120,
-        "AuthorName": "Dr. Zafrullah Chowdhury",
-        "category": "Health and Wellness",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
+      "id": "9",
+      "BookName": "পরিবেশ বিজ্ঞান",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 9",
+      "price": 280,
+      "discountPercentage": 14.5,
+      "rating": 3.9,
+      "stock": 145,
+      "AuthorName": "A K M Azizul Haque",
+      "category": "Science and Technology",
+      "images": "https://i.ibb.co/JxtYkv1/image.png"
     },
     {
-        "id": 4,
-        "BookName": "স্বাস্থ্য কথা",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 4",
-        "price": 120,
-        "discountPercentage": 12.0,
-        "rating": 3.1,
-        "stock": 120,
-        "AuthorName": "Dr. Zafrullah Chowdhury",
-        "category": "Health and Wellness",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
+      "id": "10",
+      "BookName": "Pakistaner Jonmo Mrityu",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 10",
+      "price": 300,
+      "discountPercentage": 15,
+      "rating": 4,
+      "stock": 150,
+      "AuthorName": "অরুন্ধতী রায়",
+      "category": "Politics and Social Sciences",
+      "images": "https://i.ibb.co/z4pcDxX/Pakistaner-Jonmo-Mrityu.jpg"
     },
     {
-        "id": 4,
-        "BookName": "স্বাস্থ্য কথা",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 4",
-        "price": 120,
-        "discountPercentage": 12.0,
-        "rating": 3.1,
-        "stock": 120,
-        "AuthorName": "Dr. Zafrullah Chowdhury",
-        "category": "Health and Wellness",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
+      "id": "11",
+      "BookName": "মন ও মনের রোগ",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 11",
+      "price": 320,
+      "discountPercentage": 15.5,
+      "rating": 4.1,
+      "stock": 155,
+      "AuthorName": "Dr. Tahmina Banu",
+      "category": "Health and Wellness",
+      "images": "https://i.ibb.co/KhqZXPZ/image.jpg"
     },
     {
-        "id": 4,
-        "BookName": "স্বাস্থ্য কথা",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 4",
-        "price": 120,
-        "discountPercentage": 12.0,
-        "rating": 3.1,
-        "stock": 120,
-        "AuthorName": "Dr. Zafrullah Chowdhury",
-        "category": "Health and Wellness",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
+      "id": "12",
+      "BookName": "Hatim Tai",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 12",
+      "price": 340,
+      "discountPercentage": 16,
+      "rating": 4.2,
+      "stock": 160,
+      "AuthorName": "Gazi Abdul Hakim",
+      "category": "Childrens Books",
+      "images": "https://i.ibb.co/d0T4XM4/Hatim-Tai.jpg"
     },
     {
-        "id": 4,
-        "BookName": "স্বাস্থ্য কথা",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 4",
-        "price": 120,
-        "discountPercentage": 12.0,
-        "rating": 3.1,
-        "stock": 120,
-        "AuthorName": "Dr. Zafrullah Chowdhury",
-        "category": "Health and Wellness",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
+      "id": "13",
+      "BookName": "ঘরে বাইরে",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 13",
+      "price": 360,
+      "discountPercentage": 16.5,
+      "rating": 4.3,
+      "stock": 165,
+      "AuthorName": "রবীন্দ্রনাথ ঠাকুর ",
+      "category": "Literature and Poetry",
+      "images": "https://i.ibb.co/LQ60S70/image.png"
     },
     {
-        "id": 4,
-        "BookName": "স্বাস্থ্য কথা",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 4",
-        "price": 120,
-        "discountPercentage": 12.0,
-        "rating": 3.1,
-        "stock": 120,
-        "AuthorName": "Dr. Zafrullah Chowdhury",
-        "category": "Health and Wellness",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
+      "id": "14",
+      "BookName": "গোরা",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 13",
+      "price": 360,
+      "discountPercentage": 16.5,
+      "rating": 4.3,
+      "stock": 165,
+      "AuthorName": "রবীন্দ্রনাথ ঠাকুর ",
+      "category": "Literature and Poetry",
+      "images": "https://i.ibb.co/jGrZwkN/image.png"
     },
     {
-        "id": 4,
-        "BookName": "স্বাস্থ্য কথা",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 4",
-        "price": 120,
-        "discountPercentage": 12.0,
-        "rating": 3.1,
-        "stock": 120,
-        "AuthorName": "Dr. Zafrullah Chowdhury",
-        "category": "Health and Wellness",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
-    },
-    {
-        "id": 4,
-        "BookName": "স্বাস্থ্য কথা",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 4",
-        "price": 120,
-        "discountPercentage": 12.0,
-        "rating": 3.1,
-        "stock": 120,
-        "AuthorName": "Dr. Zafrullah Chowdhury",
-        "category": "Health and Wellness",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
-    },
-    {
-        "id": 5,
-        "BookName": "ঠাকুরমার ঝুলি",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 5",
-        "price": 100,
-        "discountPercentage": 12.5,
-        "rating": 3.5,
-        "stock": 125,
-        "AuthorName": "Dakshinaranjan Mitra Majumder",
-        "category": "Childrens Books",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
-    },
-    
-    {
-        "id": 6,
-        "BookName": "গীতাঞ্জলি",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 6",
-        "price": 220,
-        "discountPercentage": 13.0,
-        "rating": 3.6,
-        "stock": 130,
-        "AuthorName": "গীতগোবিন্দ",
-        "category": "Literature and Poetry",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
-    },
-    
-    {
-        "id": 8,
-        "BookName": "বাংলাদেশ: একাত্তরের জনযুদ্ধ",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 8",
-        "price": 260,
-        "discountPercentage": 14.0,
-        "rating": 3.8,
-        "stock": 140,
-        "AuthorName": "Hasan Azizul Haque",
-        "category": "Educational Books",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
-    },
-    {
-        "id": 9,
-        "BookName": "পরিবেশ বিজ্ঞান",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 9",
-        "price": 280,
-        "discountPercentage": 14.5,
-        "rating": 3.9,
-        "stock": 145,
-        "AuthorName": "A K M Azizul Haque",
-        "category": "Science and Technology",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
-    },
-    {
-        "id": 10,
-        "BookName": "Pakistaner Jonmo Mrityu",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 10",
-        "price": 300,
-        "discountPercentage": 15.0,
-        "rating": 4.0,
-        "stock": 150,
-        "AuthorName": "অরুন্ধতী রায়",
-        "category": "Politics and Social Sciences",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
-    },
-    {
-        "id": 11,
-        "BookName": "মন ও মনের রোগ",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 11",
-        "price": 320,
-        "discountPercentage": 15.5,
-        "rating": 4.1,
-        "stock": 155,
-        "AuthorName": "Dr. Tahmina Banu",
-        "category": "Health and Wellness",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
-    },
-    {
-        "id": 12,
-        "BookName": "Hatim Tai",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 12",
-        "price": 340,
-        "discountPercentage": 16.0,
-        "rating": 4.2,
-        "stock": 160,
-        "AuthorName": "Gazi Abdul Hakim",
-        "category": "Childrens Books",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
-    },
-    {
-        "id": 13,
-        "BookName": "ঘরে বাইরে",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 13",
-        "price": 360,
-        "discountPercentage": 16.5,
-        "rating": 4.3,
-        "stock": 165,
-        "AuthorName": "রবীন্দ্রনাথ ঠাকুর ",
-        "category": "Literature and Poetry",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
-    },
-    {
-        "id": 14,
-        "BookName": "গোরা",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 13",
-        "price": 360,
-        "discountPercentage": 16.5,
-        "rating": 4.3,
-        "stock": 165,
-        "AuthorName": "রবীন্দ্রনাথ ঠাকুর ",
-        "category": "Literature and Poetry",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
-    },
-    {
-        "id": 15,
-        "BookName": "ইতিহাস ও রাজনীতি",
-        "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 1",
-        "price": 120,
-        "discountPercentage": 10.5,
-        "rating": 3.1,
-        "stock": 105,
-        "AuthorName": "Mohammad Zakaria",
-        "category": "Educational Books",
-        "images": "https://i.ibb.co/pnGJwLn/image.png"
+      "id": "15",
+      "BookName": "ইতিহাস ও রাজনীতি",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 1",
+      "price": 120,
+      "discountPercentage": 10.5,
+      "rating": 3.1,
+      "stock": 105,
+      "AuthorName": "Mohammad Zakaria",
+      "category": "Educational Books",
+      "images": "https://i.ibb.co/N3P2ktx/image.png"
     }
-    
-    ],
-    "AuthorName":[
-        {
-          "value": "Mohammad Zakaria",
-          "label": "Mohammad Zakaria",
-          "checked": false
-        },
-        {
-          "value": "Muhammed Zafar Iqbal",
-          "label": "Muhammed Zafar Iqbal",
-          "checked": false
-        },
-        {
-          "value": "Asif Azim",
-          "label": "Asif Azim",
-          "checked": false
-        },
-        {
-          "value": "Dr. Zafrullah Chowdhury",
-          "label": "Dr. Zafrullah Chowdhury",
-          "checked": false
-        },
-        {
-          "value": "Dakshinaranjan Mitra Majumder",
-          "label": "Dakshinaranjan Mitra Majumder",
-          "checked": false
-        },
-        {
-          "value": "গীতগোবিন্দ",
-          "label": "গীতগোবিন্দ",
-          "checked": false
-        },
-        {
-          "value": "Hasan Azizul Haque",
-          "label": "Hasan Azizul Haque",
-          "checked": false
-        },
-        {
-          "value": "A K M Azizul Haque",
-          "label": "A K M Azizul Haque",
-          "checked": false
-        },
-        {
-          "value": "অরুন্ধতী রায়",
-          "label": "অরুন্ধতী রায়",
-          "checked": false
-        },
-        {
-          "value": "Dr. Tahmina Banu",
-          "label": "Dr. Tahmina Banu",
-          "checked": false
-        },
-        {
-          "value": "Gazi Abdul Hakim",
-          "label": "Gazi Abdul Hakim",
-          "checked": false
-        },
-        {
-          "value": "রবীন্দ্রনাথ ঠাকুর ",
-          "label": "রবীন্দ্রনাথ ঠাকুর ",
-          "checked": false
-        }
-      ], 
-      "category":[
-        {
-          "value": "Educational Books",
-          "label": "Educational Books",
-          "checked": false
-        },
-        {
-          "value": "Science and Technology",
-          "label": "Science and Technology",
-          "checked": false
-        },
-        {
-          "value": "Health and Wellness",
-          "label": "Health and Wellness",
-          "checked": false
-        },
-        {
-          "value": "Childrens Books",
-          "label": "Childrens Books",
-          "checked": false
-        },
-        {
-          "value": "Literature and Poetry",
-          "label": "Literature and Poetry",
-          "checked": false
-        },
-        {
-          "value": "Politics and Social Sciences",
-          "label": "Politics and Social Sciences",
-          "checked": false
-        }
-      ]
-
+  ],
+  "AuthorName": [
+    {
+      "value": "Mohammad Zakaria",
+      "label": "Mohammad Zakaria",
+      "checked": false,
+      "id": "cc7a"
+    },
+    {
+      "value": "Muhammed Zafar Iqbal",
+      "label": "Muhammed Zafar Iqbal",
+      "checked": false,
+      "id": "69e7"
+    },
+    {
+      "value": "Asif Azim",
+      "label": "Asif Azim",
+      "checked": false,
+      "id": "e75b"
+    },
+    {
+      "value": "Dr. Zafrullah Chowdhury",
+      "label": "Dr. Zafrullah Chowdhury",
+      "checked": false,
+      "id": "36d6"
+    },
+    {
+      "value": "Dakshinaranjan Mitra Majumder",
+      "label": "Dakshinaranjan Mitra Majumder",
+      "checked": false,
+      "id": "858c"
+    },
+    {
+      "value": "গীতগোবিন্দ",
+      "label": "গীতগোবিন্দ",
+      "checked": false,
+      "id": "ccbf"
+    },
+    {
+      "value": "Hasan Azizul Haque",
+      "label": "Hasan Azizul Haque",
+      "checked": false,
+      "id": "1f44"
+    },
+    {
+      "value": "A K M Azizul Haque",
+      "label": "A K M Azizul Haque",
+      "checked": false,
+      "id": "9aa0"
+    },
+    {
+      "value": "অরুন্ধতী রায়",
+      "label": "অরুন্ধতী রায়",
+      "checked": false,
+      "id": "da98"
+    },
+    {
+      "value": "Dr. Tahmina Banu",
+      "label": "Dr. Tahmina Banu",
+      "checked": false,
+      "id": "608d"
+    },
+    {
+      "value": "Gazi Abdul Hakim",
+      "label": "Gazi Abdul Hakim",
+      "checked": false,
+      "id": "4b63"
+    },
+    {
+      "value": "রবীন্দ্রনাথ ঠাকুর ",
+      "label": "রবীন্দ্রনাথ ঠাকুর ",
+      "checked": false,
+      "id": "c0fe"
+    }
+  ],
+  "category": [
+    {
+      "value": "Educational Books",
+      "label": "Educational Books",
+      "checked": false,
+      "id": "2dd6"
+    },
+    {
+      "value": "Science and Technology",
+      "label": "Science and Technology",
+      "checked": false,
+      "id": "beff"
+    },
+    {
+      "value": "Health and Wellness",
+      "label": "Health and Wellness",
+      "checked": false,
+      "id": "061e"
+    },
+    {
+      "value": "Childrens Books",
+      "label": "Childrens Books",
+      "checked": false,
+      "id": "dfff"
+    },
+    {
+      "value": "Literature and Poetry",
+      "label": "Literature and Poetry",
+      "checked": false,
+      "id": "52ae"
+    },
+    {
+      "value": "Politics and Social Sciences",
+      "label": "Politics and Social Sciences",
+      "checked": false,
+      "id": "2d47"
+    }
+  ],
+  "cart": [
+    {
+      "id": "1",
+      "BookName": "বাংলাদেশের মুক্তিযুদ্ধ",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 1",
+      "price": 10,
+      "discountPercentage": 10.5,
+      "rating": 3.1,
+      "stock": 109,
+      "AuthorName": "Mohammad Zakaria",
+      "category": "Educational Books",
+      "images": "https://i.ibb.co/WtQNb0p/image.jpg",
+      "quantity": 1,
+      "user": "cqZQhDbnhab7OOhoValhhmF0tLG3"
+    }
+  ]
 }

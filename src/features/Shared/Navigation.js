@@ -5,11 +5,13 @@ import logo from '../../assets/logo/mainlogo.png'
 import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
 import { ShoppingCartIcon } from '@heroicons/react/20/solid';
+import { useSelector } from 'react-redux';
+import { selectCartItems } from '../Cart/CartSlice';
 
 const Navigation = () => {
-  
+  const items = useSelector(selectCartItems);
   const {user,logOut}=useContext(AuthContext);  {/* get user information which user are login*/}
-  console.log(user)
+  
   const handleLogOut = () => {
       logOut()
       
@@ -64,7 +66,7 @@ const Navigation = () => {
         <Link to="/cart">
                       <button
                         type="button"
-                        className="relative rounded-full bg-gray-700 p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                        className="relative rounded-full bg-gray-700 p-1 text-white "
                       >
                         <span className="absolute -inset-1.5" />
                         <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
@@ -72,7 +74,7 @@ const Navigation = () => {
                       </button>
                       </Link>
                       {/* cart add value */}
-                      <span className="inline-flex items-center rounded-md mb-7 -ml-2 bg-purple-600 px-2 py-1 text-xs font-medium text-white ring-1 ring-inset ring-purple-700/10">1+</span>
+                      {items.length > 0 && (<span className="inline-flex items-center rounded-md mb-7 -ml-2 bg-purple-600 px-2 py-1 text-xs font-medium text-white ring-1 ring-inset ring-purple-700/10">{items.length}</span>)}
 
         <label className="swap swap-rotate">
   

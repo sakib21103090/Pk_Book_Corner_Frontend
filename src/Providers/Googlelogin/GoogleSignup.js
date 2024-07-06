@@ -3,7 +3,6 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import { app } from "../../firebase/firebase.config";
-import { FaGoogle } from "react-icons/fa";
 
 const GoogleSignup = () => {
   const navigate = useNavigate();
