@@ -283,17 +283,31 @@
   ],
   "cart": [
     {
-      "id": "1",
-      "BookName": "বাংলাদেশের মুক্তিযুদ্ধ",
-      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 1",
-      "price": 10,
-      "discountPercentage": 10.5,
-      "rating": 3.1,
-      "stock": 109,
-      "AuthorName": "Mohammad Zakaria",
-      "category": "Educational Books",
-      "images": "https://i.ibb.co/WtQNb0p/image.jpg",
-      "quantity": 1,
+      "id": "3",
+      "BookName": "Mohakash",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 3",
+      "price": 130,
+      "discountPercentage": 11.5,
+      "rating": 3.4,
+      "stock": 115,
+      "AuthorName": "Asif Azim",
+      "category": "Science and Technology",
+      "images": "https://i.ibb.co/GQgZGQY/mohabisso.jpg",
+      "quantity": 5,
+      "user": "cqZQhDbnhab7OOhoValhhmF0tLG3"
+    },
+    {
+      "id": "5",
+      "BookName": "ঠাকুরমার ঝুলি",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 5",
+      "price": 100,
+      "discountPercentage": 12.5,
+      "rating": 3.5,
+      "stock": 125,
+      "AuthorName": "Dakshinaranjan Mitra Majumder",
+      "category": "Childrens Books",
+      "images": "https://i.ibb.co/PgHhgPY/image.png",
+      "quantity": 5,
       "user": "cqZQhDbnhab7OOhoValhhmF0tLG3"
     }
   ]

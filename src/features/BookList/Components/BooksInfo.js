@@ -112,13 +112,13 @@ export default function BooksInfo() {
                 </button>
               </form>
               <Link to="/">
-  <button
-    type="button"
-    className="font-medium text-indigo-600 hover:text-indigo-500 mt-8 transition-colors ml-2"
-  >
-    <span aria-hidden="true">&larr;</span> Continue Shopping
-  </button>
-</Link>
+                <button
+                  type="button"
+                  className="font-medium text-indigo-600 hover:text-indigo-500 mt-8 transition-colors ml-2"
+                >
+                  <span aria-hidden="true">&larr;</span> Continue Shopping
+                </button>
+              </Link>
             </div>
 
             <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200  lg:pb-16 lg:pr-8 lg:pt-6">
