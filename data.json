@@ -279,5 +279,34 @@
       "id": "2d47"
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": "4",
+      "BookName": "স্বাস্থ্য কথা",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 4",
+      "price": 720,
+      "discountPercentage": 20,
+      "rating": 3.1,
+      "stock": 120,
+      "AuthorName": "Dr. Zafrullah Chowdhury",
+      "category": "Health and Wellness",
+      "images": "https://i.ibb.co/3Rxdpc1/image.png",
+      "quantity": 5,
+      "user": "cqZQhDbnhab7OOhoValhhmF0tLG3"
+    },
+    {
+      "id": "6",
+      "BookName": "গীতাঞ্জলি",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 6",
+      "price": 390,
+      "discountPercentage": 30,
+      "rating": 3.6,
+      "stock": 130,
+      "AuthorName": "গীতগোবিন্দ",
+      "category": "Literature and Poetry",
+      "images": "https://i.ibb.co/DpgHQ06/image.png",
+      "quantity": 1,
+      "user": "cqZQhDbnhab7OOhoValhhmF0tLG3"
+    }
+  ]
 }

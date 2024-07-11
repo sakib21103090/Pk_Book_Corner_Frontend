@@ -12,24 +12,29 @@ export default function Cart() {
   const items = useSelector(selectCartItems);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(true);
+  const [deliveryCharge, setDeliveryCharge] = useState(0);
 
   const handleQuantity = (e, item) => {
     dispatch(updateCartAsync({ id: item.id, quantity: +e.target.value }));
   };
 
-  // For remove
   const handleRemove = (e, id) => {
     dispatch(deleteItemFromCartAsync(id));
     Swal.fire("Removed", "Book has been removed from the cart", "success");
   };
 
-  const totalAmount = items.reduce((amount, item) => {
+  const handleDeliveryCharge = (charge) => {
+    setDeliveryCharge(charge);
+  };
+
+  const Subtotal = items.reduce((amount, item) => {
     const price = item.discountPercentage
       ? Math.round(item.price * (1 - item.discountPercentage / 100))
       : item.price;
     return amount + price * item.quantity;
   }, 0);
 
+  const TotalPrice = Subtotal + deliveryCharge;
   const totalItems = items.reduce((total, item) => item.quantity + total, 0);
 
   return (
@@ -54,15 +59,20 @@ export default function Cart() {
                           {item.BookName}
                         </h3>
                         {item.discountPercentage ? (
-                            <div>
-                              <p className="">
-                              <p>{(item.price - (item.price * item.discountPercentage / 100)).toFixed(2)}Tk</p>
+                          <div>
+                            <p className="">
+                              <p>
+                                {(
+                                  item.price -
+                                  (item.price * item.discountPercentage) / 100
+                                ).toFixed(2)}
+                                Tk
                               </p>
-                              
-                            </div>
-                          ) : (
-                            <p>{item.price.toFixed(2)}Tk</p>
-                          )}
+                            </p>
+                          </div>
+                        ) : (
+                          <p>{item.price.toFixed(2)}Tk</p>
+                        )}
                       </div>
                       <p className="mt-1 text-sm text-gray-500 flex items-center">
                         <span className="mr-2">Rating:</span>
@@ -105,17 +115,44 @@ export default function Cart() {
                 </li>
               ))}
             </ul>
+            <div className="mt-8">
+              <p className="text-lg font-medium text-gray-700 mb-4">
+                Delivery Location
+              </p>
+              <div className="flex space-x-4">
+                <button
+                  onClick={() => handleDeliveryCharge(120)}
+                  className="px-4 py-2 bg-yellow-500 text-white rounded-full shadow-lg hover:bg-yellow-600 focus:outline-none transition duration-300"
+                >
+                  Dhaka
+                </button>
+                <button
+                  onClick={() => handleDeliveryCharge(150)}
+                  className="px-4 py-2 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 focus:outline-none transition duration-300"
+                >
+                  Without Dhaka
+                </button>
+              </div>
+            </div>
           </div>
 
           <div className="lg:col-span-1 bg-yellow-50 p-6 rounded-lg shadow-md">
             <div className="border-b border-gray-200 pb-4 mb-4">
               <div className="flex text-xl justify-between font-medium text-gray-900">
                 <p>Subtotal</p>
-                <p>{totalAmount}Tk</p>
+                <p>{Subtotal}Tk</p>
               </div>
               <div className="flex text-xl justify-between font-medium text-gray-900">
                 <p>Total books</p>
                 <p>{totalItems}</p>
+              </div>
+              <div className="flex text-xl justify-between font-medium text-gray-900">
+                <p>Delivery charge</p>
+                <p>{deliveryCharge}Tk</p>
+              </div>
+              <div className="flex text-xl justify-between font-medium text-gray-900">
+                <p>Total price</p>
+                <p>{TotalPrice}Tk</p>
               </div>
             </div>
             <div className="mt-6">
