@@ -281,17 +281,17 @@
   ],
   "cart": [
     {
-      "id": "2",
-      "BookName": "আশ্চর্য প্রদীপ",
-      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 2",
-      "price": 400,
-      "discountPercentage": 40,
-      "rating": 4,
-      "stock": 110,
-      "AuthorName": "Muhammed Zafar Iqbal",
-      "category": "Science and Technology",
-      "images": "https://i.ibb.co/HP1zQvN/Aladiner-Acharjo-Prodip.png",
-      "quantity": 4,
+      "id": "1",
+      "BookName": "বাংলাদেশের মুক্তিযুদ্ধ",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 1",
+      "price": 100,
+      "discountPercentage": 10,
+      "rating": 3.1,
+      "stock": 109,
+      "AuthorName": "Mohammad Zakaria",
+      "category": "Educational Books",
+      "images": "https://i.ibb.co/WtQNb0p/image.jpg",
+      "quantity": 1,
       "user": "cqZQhDbnhab7OOhoValhhmF0tLG3"
     },
     {
