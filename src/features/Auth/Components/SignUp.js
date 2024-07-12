@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+// import React, { useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { increment, incrementAsync, selectCount } from "./AuthSlice";
 // import styles from './Counter.module.css';
 import signuplogo from "../../../assets/logo/signuppagelogo.png";
 import Swal from "sweetalert2";
@@ -11,6 +14,7 @@ export default function SignUp() {
   const { createUser } = useContext(AuthContext);
   const HandelRegister = (event) => {
     event.preventDefault();
+    
     const form = event.target;
     const name = form.displayName.value;
     const email = form.email.value;

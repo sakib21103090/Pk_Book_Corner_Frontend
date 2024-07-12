@@ -2,7 +2,7 @@ import React, { useContext,  } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { RxDropdownMenu } from "react-icons/rx";
 import logo from '../../assets/logo/mainlogo.png'
-import { AuthContext } from '../../Providers/AuthProviders';
+// import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
 import { ShoppingCartIcon } from '@heroicons/react/20/solid';
 import { useSelector } from 'react-redux';
@@ -10,7 +10,10 @@ import { selectCartItems } from '../Cart/CartSlice';
 
 const Navigation = () => {
   const items = useSelector(selectCartItems);
-  const {user,logOut}=useContext(AuthContext);  {/* get user information which user are login*/}
+  // const {user,logOut}=useContext(AuthContext); 
+  const user = "";
+  const logOut = "";
+  {/* get user information which user are login*/}
   
   const handleLogOut = () => {
       logOut()

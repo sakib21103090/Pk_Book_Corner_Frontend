@@ -1,22 +1,23 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchCount } from './AuthAPI';
+import { CreateUser } from './AuthAPI';
 
 const initialState = {
-  value: 0,
+  loginInUser: null,
   status: 'idle',
 };
 
-export const incrementAsync = createAsyncThunk(
-  'counter/fetchCount',
-  async (amount) => {
-    const response = await fetchCount(amount);
-    
+export const createUserAsync = createAsyncThunk(
+  'user/createUser',
+  async (userData) => {
+    const response = await CreateUser(userData);
+    // The value we return becomes the `fulfilled` action payload
     return response.data;
   }
 );
 
+
 export const AuthSlice = createSlice({
-  name: 'counter',
+  name: 'user',
   initialState,
   
   reducers: {
@@ -29,20 +30,16 @@ export const AuthSlice = createSlice({
   
   extraReducers: (builder) => {
     builder
-      .addCase(incrementAsync.pending, (state) => {
+      .addCase(createUserAsync.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(incrementAsync.fulfilled, (state, action) => {
+      .addCase(createUserAsync.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.value += action.payload;
+        state.loginInUser = action.payload;
       });
   },
 });
 
-export const { increment} = AuthSlice.actions;
-
-export const selectCount = (state) => state.counter.value;
-
-
+export const selectLoginInUser = (state) => state.auth.loginInUser;
 
 export default AuthSlice.reducer;

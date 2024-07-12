@@ -1,10 +1,11 @@
-import Login from "../Auth/Components/Login";
+import LoginForm from "../Auth/Components/LoginForm";
+
 
 function UserLogin(){
     return(
         <div>
-             
-              <Login></Login>   
+             <LoginForm></LoginForm>
+              
         </div>
     )
 }

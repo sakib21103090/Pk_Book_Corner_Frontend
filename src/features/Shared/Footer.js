@@ -3,7 +3,7 @@ import logo from '../../assets/logo/mainlogo.png'
 function Footer(){
     return(
         <div>
-            <footer className="footer  bg-yellow-200 p-10 footer-bg text-black">
+            <footer className="footer  bg-yellow-200 p-10  text-black">
         <div>
           <img className='w-[150px] h-[70px]  text-black  rounded-t-full border-4 border-yellow-500  ' src={logo} alt="" />
           <p className='italic font-bold'> PK Book Corner<br/>12 3 Main Uttra</p>
