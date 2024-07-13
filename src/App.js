@@ -1,18 +1,20 @@
 import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./Routes/Router";
-import AuthProviders, { AuthContext } from "./Providers/AuthProviders";
-import { useDispatch } from "react-redux";
-import { useContext, useEffect } from "react";
+// import AuthProviders, { AuthContext } from "./Providers/AuthProviders";
+import { useDispatch, useSelector } from "react-redux";
+
 import { fetchItemsByUserIdAsync } from "./features/Cart/CartSlice";
+import { selectLoginInUser } from "./features/Auth/Components/AuthSlice";
+import { useEffect } from "react";
 
 function AppContent() {
-  const { user } = useContext(AuthContext);
+  const user = useSelector(selectLoginInUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (user) {
-      dispatch(fetchItemsByUserIdAsync(user.uid));
+      dispatch(fetchItemsByUserIdAsync(user.id));
     }
   }, [dispatch, user]);
 
@@ -25,9 +27,9 @@ function AppContent() {
 
 function App() {
   return (
-    <AuthProviders>
+   
       <AppContent />
-    </AuthProviders>
+   
   );
 }
 

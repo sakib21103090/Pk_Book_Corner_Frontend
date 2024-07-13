@@ -14,17 +14,13 @@ export default function Cart() {
   const [open, setOpen] = useState(true);
   const [deliveryCharge, setDeliveryCharge] = useState(0);
 
-  const handleQuantity = (e, item) => {
-    dispatch(updateCartAsync({ id: item.id, quantity: +e.target.value }));
+  const handleQuantity = (id, quantity) => {
+    dispatch(updateCartAsync({ id, quantity }));
   };
 
-  const handleRemove = (e, id) => {
+  const handleRemove = (id) => {
     dispatch(deleteItemFromCartAsync(id));
     Swal.fire("Removed", "Book has been removed from the cart", "success");
-  };
-
-  const handleDeliveryCharge = (charge) => {
-    setDeliveryCharge(charge);
   };
 
   const Subtotal = items.reduce((amount, item) => {
@@ -34,7 +30,6 @@ export default function Cart() {
     return amount + price * item.quantity;
   }, 0);
 
-  const TotalPrice = Subtotal + deliveryCharge;
   const totalItems = items.reduce((total, item) => item.quantity + total, 0);
 
   return (
@@ -62,16 +57,14 @@ export default function Cart() {
                           <div>
                             <p className="">
                               <p>
-                                {(
-                                  item.price -
-                                  (item.price * item.discountPercentage) / 100
-                                ).toFixed(2)}
+                                {item.price -
+                                  (item.price * item.discountPercentage) / 100}
                                 Tk
                               </p>
                             </p>
                           </div>
                         ) : (
-                          <p>{item.price.toFixed(2)}Tk</p>
+                          <p>{item.price}Tk</p>
                         )}
                       </div>
                       <p className="mt-1 text-sm text-gray-500 flex items-center">
@@ -80,29 +73,35 @@ export default function Cart() {
                       </p>
                     </div>
                     <div className="flex flex-1 items-end justify-between text-sm">
-                      <div className="text-gray-500">
-                        <label
-                          htmlFor="quantity"
-                          className="inline mr-5 text-sm font-medium leading-6 text-gray-900"
-                        >
-                          Qty
-                        </label>
-                        <select
-                          onChange={(e) => handleQuantity(e, item)}
-                          value={item.quantity}
-                          className="rounded-md border-gray-300 shadow-sm"
-                        >
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                        </select>
+                      <div class="flex flex-1 items-end justify-between text-sm">
+                        <div class="text-gray-500 flex items-center space-x-4">
+                          <button
+                            onClick={() => {
+                              if (item.quantity > 1) {
+                                handleQuantity(item.id, item.quantity - 1);
+                              }
+                            }}
+                            type="button"
+                            class="w-8 h-8 flex items-center justify-center bg-red-500 text-black  text-3xl rounded-full border border-red-700  hover:bg-red-400 transition-colors"
+                          >
+                            -
+                          </button>
+                          <span class="text-2xl font-bold text-black">{item.quantity}</span>
+                          <button
+                            onClick={() => {
+                              handleQuantity(item.id, item.quantity + 1);
+                            }}
+                            type="button"
+                            class="w-8 h-8 flex items-center justify-center bg-green-500  text-black  text-3xl rounded-full border border-green-700  hover:bg-green-400 transition-colors"
+                          >
+                            +
+                          </button>
+                        </div>
                       </div>
                       <div className="flex">
                         <button
-                          onClick={(e) => {
-                            handleRemove(e, item.id);
+                          onClick={() => {
+                            handleRemove(item.id);
                           }}
                           type="button"
                           className="font-medium text-white bg-indigo-600 hover:bg-indigo-500 transition-colors px-4 py-2 rounded-full shadow-md"
@@ -115,25 +114,6 @@ export default function Cart() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8">
-              <p className="text-lg font-medium text-gray-700 mb-4">
-                Delivery Location
-              </p>
-              <div className="flex space-x-4">
-                <button
-                  onClick={() => handleDeliveryCharge(90)}
-                  className="px-4 py-2 bg-yellow-500 text-white rounded-full shadow-lg hover:bg-yellow-600 focus:outline-none transition duration-300"
-                >
-                  Dhaka(90 Tk)
-                </button>
-                <button
-                  onClick={() => handleDeliveryCharge(120)}
-                  className="px-4 py-2 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 focus:outline-none transition duration-300"
-                >
-                  Without Dhaka(120Tk)
-                </button>
-              </div>
-            </div>
           </div>
 
           <div className="lg:col-span-1 bg-yellow-50 p-6 rounded-lg shadow-md">
@@ -145,14 +125,6 @@ export default function Cart() {
               <div className="flex text-xl justify-between font-medium text-gray-900">
                 <p>Total books</p>
                 <p>{totalItems}</p>
-              </div>
-              <div className="flex text-xl justify-between font-medium text-gray-900">
-                <p>Delivery charge</p>
-                <p>{deliveryCharge}Tk</p>
-              </div>
-              <div className="flex text-xl justify-between font-medium text-gray-900">
-                <p>Total price</p>
-                <p>{TotalPrice}Tk</p>
               </div>
             </div>
             <div className="mt-6">

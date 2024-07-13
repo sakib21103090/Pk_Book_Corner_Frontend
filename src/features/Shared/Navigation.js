@@ -7,21 +7,23 @@ import Swal from 'sweetalert2';
 import { ShoppingCartIcon } from '@heroicons/react/20/solid';
 import { useSelector } from 'react-redux';
 import { selectCartItems } from '../Cart/CartSlice';
+import { selectLoginInUser } from '../Auth/Components/AuthSlice';
 
 const Navigation = () => {
   const items = useSelector(selectCartItems);
   // const {user,logOut}=useContext(AuthContext); 
-  const user = "";
+  const user = useSelector(selectLoginInUser);
   const logOut = "";
   {/* get user information which user are login*/}
   
   const handleLogOut = () => {
-      logOut()
+      // logOut()
       
-      .then(() => {
-        Swal.fire('Hey', 'Logout successful', 'success');
-      })
-          .catch(error => console.log(error));
+      // .then(() => {
+      //   Swal.fire('Hey', 'Logout successful', 'success');
+      // })
+      //     .catch(error => console.log(error));
+      console.log("vajoiaweur")
           
   }
   
@@ -59,8 +61,8 @@ const Navigation = () => {
            
            {user&& <li><NavLink className='text-black font-bold' to="/dashboard">Dashboard</NavLink> </li>}
 
-           {/* {user ? <button onClick={handleLogOut} className="btn btn-sm btn-outline bg-gray-400 ">Log Out</button>:<Link to="/login" className="btn btn-sm  h-[30px]  class-card-bg hover:bg-lime-400 md:mx-4">Login</Link> } */}
-         
+           {/* {user ? <button onClick={handleLogOut} className="btn btn-sm btn-outline bg-gray-400 ">Log Out</button>:<Link to="/login" className="btn btn-sm  h-[30px]  class-card-bg hover:bg-lime-400 md:mx-4">Login</Link> }
+          */}
           </ul>
         </div>
         <div>     

@@ -3,9 +3,10 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import { fetchProductsByIdAsync, selectedProductById } from "./BooksSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../Providers/AuthProviders";
+// import { AuthContext } from "../../../Providers/AuthProviders";
 import { addToCartAsync, selectCartItems } from "../../Cart/CartSlice";
 import Swal from "sweetalert2";
+import { selectLoginInUser } from "../../Auth/Components/AuthSlice";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -16,7 +17,8 @@ export default function BooksInfo() {
   const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
   const params = useParams();
-  const { user } = useContext(AuthContext);
+  const user = useSelector(selectLoginInUser);
+  console.log(user)
   const navigate = useNavigate();
 
   const handleCart = (e) => {
@@ -43,7 +45,7 @@ export default function BooksInfo() {
     if (isProductInCart) {
       Swal.fire("Oops", "Book is already added to cart", "warning");
     } else {
-      dispatch(addToCartAsync({ ...product, quantity: 1, user: user.uid }));
+      dispatch(addToCartAsync({ ...product, quantity: 1, user: user.id }));
       Swal.fire("Success", "Book is added to cart", "success");
     }
   };

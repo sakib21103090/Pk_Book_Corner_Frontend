@@ -2,13 +2,13 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link,useNavigate } from 'react-router-dom';
 import signuplogo from '../../../assets/logo/signuppagelogo.png';
-import { useSelector, useDispatch } from "react-redux";
-import { createUserAsync, selectLoginInUser } from './AuthSlice';
+import {  useDispatch } from "react-redux";
+import { createUserAsync, } from './AuthSlice';
 import Swal from 'sweetalert2';
 
 const SignupForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const user = useSelector(selectLoginInUser);
+  
   const dispatch = useDispatch();
   const navigate = useNavigate(); // useNavigate hook
   const onSubmit = async (data) => {
@@ -25,7 +25,7 @@ const SignupForm = () => {
         showConfirmButton: false,
         timer: 1500
       });
-      navigate('/login'); // Redirect to home page
+      navigate('/'); // Redirect to home page
     } catch (error) {
       Swal.fire({
         icon: 'error',

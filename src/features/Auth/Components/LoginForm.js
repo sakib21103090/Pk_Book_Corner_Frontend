@@ -1,10 +1,39 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
-import { increment, incrementAsync, selectCount } from "./AuthSlice";
-const LoginForm = ({ HandelLogin, loginlogo,error }) => {
+import { LoginUserAsync, selectError } from "./AuthSlice";
+import loginlogo from '../../../assets/logo/login page logo.png';
+import Swal from 'sweetalert2';
+
+const LoginForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const error = useSelector(selectError);
+
+  const onSubmit = async (data) => {
+    const result = await dispatch(LoginUserAsync({
+      email: data.email,
+      password: data.password
+    }));
+
+    if (result.error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Invalid email or password!',
+      });
+    } else {
+      Swal.fire({
+        icon: 'success',
+        title: 'Login Successful',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      navigate('/'); // Redirect to home page
+    }
+  };
 
   return (
     <div className="hero min-h-screen bg-gradient-to-br from-yellow-100 to-gray-100">
@@ -15,7 +44,7 @@ const LoginForm = ({ HandelLogin, loginlogo,error }) => {
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-lime-100">
           <div className="card-body">
             <h1 className="text-3xl text-center font-bold">Login Please</h1>
-            <form onSubmit={handleSubmit((data)=>{console.log(data)})}>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -56,17 +85,14 @@ const LoginForm = ({ HandelLogin, loginlogo,error }) => {
               </div>
             </form>
             <div>
-            </div>
-            <p className="my-4 text-center">
-              Don't have an account?{" "}
-              <Link className="text-purple-600 font-bold" to="/signup">
-                Sign Up
-              </Link>
-            </p>
-            <div>
-              <p className="text-black bg-orange-400 text-center rounded border fw-bold mt-2">
-                <small>{error}</small>
+              <p className="my-4 text-center">
+                Don't have an account?{" "}
+                <Link className="text-purple-600 font-bold" to="/signup">
+                  Sign Up
+                </Link>
               </p>
+              <div>
+              </div>
             </div>
           </div>
         </div>
