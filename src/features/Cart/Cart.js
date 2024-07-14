@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { FaPlus,FaMinus } from "react-icons/fa6";
 import {
   deleteItemFromCartAsync,
   selectCartItems,
@@ -82,19 +83,19 @@ export default function Cart() {
                               }
                             }}
                             type="button"
-                            class="w-8 h-8 flex items-center justify-center bg-red-500 text-black  text-3xl rounded-full border border-red-700  hover:bg-red-400 transition-colors"
+                            class="w-8 h-8 flex items-center justify-center bg-red-500 text-black  rounded-full border border-red-700  hover:bg-red-400 transition-colors"
                           >
-                            -
+                           <FaMinus />
                           </button>
-                          <span class="text-2xl font-bold text-black">{item.quantity}</span>
+                          <span class="text-xl font-bold text-black">{item.quantity}</span>
                           <button
                             onClick={() => {
                               handleQuantity(item.id, item.quantity + 1);
                             }}
                             type="button"
-                            class="w-8 h-8 flex items-center justify-center bg-green-500  text-black  text-3xl rounded-full border border-green-700  hover:bg-green-400 transition-colors"
+                            class="w-8 h-8 flex items-center justify-center bg-green-500  text-black rounded-full border border-green-700  hover:bg-green-400 transition-colors"
                           >
-                            +
+                           <FaPlus />
                           </button>
                         </div>
                       </div>

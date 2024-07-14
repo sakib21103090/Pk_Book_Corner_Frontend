@@ -5,10 +5,11 @@ import UserLogin from "../features/Pages/UserLogin";
 import UserSignUp from "../features/Pages/UserSignUp";
 
 import CartPage from "../features/Pages/CartPage";
-import CheckOutPage from "../features/Pages/CheckOutPage";
+import CheckOutPage from "../features/Pages/CheckOut";
 import BooksInfoPage from "../features/Pages/BooksInfoPage";
 import Main from "../Layouts/Main";
 import Error from "../features/Error/Error";
+import OrderDone from "../features/Pages/OrderDonePage";
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
       {
         path: "/booksinfopage/:id",
         element: <BooksInfoPage></BooksInfoPage>,
+      },
+      {
+        path: "/orderDone/:id",
+        element: <OrderDone></OrderDone>,
       },
     ],
   },
