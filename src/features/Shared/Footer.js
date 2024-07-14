@@ -5,7 +5,7 @@ function Footer(){
         <div>
             <footer className="footer  bg-cyan-200 p-10  text-black">
         <div>
-          <img className='w-[150px] h-[70px]  text-black  rounded-t-full border-4 border-blue-900  ' src={logo} alt="" />
+          <img className='w-[160px] h-[80px]  text-black ' src={logo} alt="" />
           <p className='italic font-bold'> PK Book Corner<br/>12 3 Main Uttra</p>
           <p>Dhaka , Bangladesh</p>
         </div> 

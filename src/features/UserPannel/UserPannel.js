@@ -1,4 +1,4 @@
-import { NavLink, Outlet, Navigate } from "react-router-dom";
+import { NavLink, Outlet, Navigate, Link } from "react-router-dom";
 import logo from "../../assets/logo/mainlogo.png";
 
 function UserPannel() {
@@ -10,10 +10,17 @@ function UserPannel() {
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-start p-6">
           {/* Page content here */}
-          <label htmlFor="my-drawer-2" className="btn mb-4 mt-2 bg-lime-500 drawer-button lg:hidden">
+          <label
+            htmlFor="my-drawer-2"
+            className="btn mb-4 mt-2 bg-lime-500 drawer-button lg:hidden"
+          >
             Open
           </label>
-          {isAdmin ? <Navigate to="/pannelPage/adminprofile" /> : <Navigate to="/pannelPage/userprofile" />}
+          {isAdmin ? (
+            <Navigate to="/pannelPage/adminprofile" />
+          ) : (
+            <Navigate to="/pannelPage/userprofile" />
+          )}
           <Outlet /> {/* This will render the matched child route components */}
         </div>
         <div className="drawer-side">
@@ -21,13 +28,20 @@ function UserPannel() {
           <ul className="menu p-4 w-72 h-full bg-white text-base-content shadow-lg">
             {/* Sidebar content here */}
             <div className="text-center mb-4">
-              <img className='w-full h-40 mx-auto rounded-lg shadow-md' src={logo} alt="PK BOOKS CORNER" />
+              <img
+                className="w-full h-40 mx-auto rounded-lg shadow-md"
+                src={logo}
+                alt="PK BOOKS CORNER"
+              />
             </div>
             <div className="divider"></div>
             {isAdmin ? (
               <>
-                <li className='mb-6'>
-                  <NavLink to="/pannelPage/adminprofile" className="text-lime-500 text-2xl  hover:text-lime-700">
+                <li className="mb-6">
+                  <NavLink
+                    to="/pannelPage/adminprofile"
+                    className="text-lime-500 text-2xl  hover:text-lime-700"
+                  >
                     Admin Profile
                   </NavLink>
                 </li>
@@ -35,11 +49,28 @@ function UserPannel() {
               </>
             ) : (
               <>
-                <li className='mb-6'>
-                  <NavLink to="/pannelPage/userprofile" className={({ isActive }) => 
-                isActive ? "text-black font-semibold bg-cyan-200" : "text-black   hover:text-gray-700"
-              }>
+                <li className="mb-6">
+                  <NavLink
+                    to="/pannelPage/userprofile"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-black text-lg font-bold border-b-[4px] border-blue-900 "
+                        : "text-black font-bold text-lg "
+                    }
+                  >
                     User Profile
+                  </NavLink>
+                </li>
+                <li className="mb-6">
+                  <NavLink
+                    to="/pannelPage/myOrder"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-black text-lg font-bold border-b-[4px] border-blue-900 "
+                        : "text-black font-bold text-lg "
+                    }
+                  >
+                    My Order
                   </NavLink>
                 </li>
                 {/* Repeat for other user links if needed */}
@@ -47,9 +78,14 @@ function UserPannel() {
             )}
             <div className="divider"></div>
             <li>
-              <NavLink to="/" className='text-black font-semibold hover:text-gray-700'>
-                Home
-              </NavLink>
+              <Link to="/">
+                <button
+                  type="button"
+                  className="font-medium text-indigo-600 hover:text-indigo-500 mt-8 transition-colors ml-2"
+                >
+                  <span aria-hidden="true">&larr;</span> Continue Shopping
+                </button>
+              </Link>
             </li>
           </ul>
         </div>

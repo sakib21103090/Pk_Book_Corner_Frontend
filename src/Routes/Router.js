@@ -14,6 +14,7 @@ import UserProfile from "../features/UserPannel/User/UserProfile";
 import UserPannel from "../features/UserPannel/UserPannel";
 import PannelPage from "../features/UserPannel/PannelPage";
 import AdminProfile from "../features/UserPannel/Admin/AdminProfile";
+import MyOrder from "../features/UserPannel/User/MyOrder";
 
 
 export const router = createBrowserRouter([
@@ -66,6 +67,11 @@ export const router = createBrowserRouter([
         {
           path: "adminprofile",
           element: <AdminProfile></AdminProfile>,
+        },
+      
+        {
+          path: "myOrder",
+          element: <MyOrder></MyOrder>,
         },
       
       

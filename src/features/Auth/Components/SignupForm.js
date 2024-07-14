@@ -37,12 +37,12 @@ const SignupForm = () => {
   };
 
   return (
-    <div className="hero min-h-screen pt-24 bg-gradient-to-br from-yellow-100 to-gray-100">
+    <div className="hero min-h-screen pt-24 bg-gradient-to-br  from-cyan-50 to-blue-50">
       <div className="hero-content flex-col lg:flex-row">
         <div className="w-1/2 mr-12">
           <img className="w-[600px] rounded-2" src={signuplogo} alt="Signup Logo" />
         </div>
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-lime-100">
+        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-cyan-100">
           <div className="card-body">
             <h1 className="text-2xl text-center font-bold">Please Sign Up</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -106,7 +106,7 @@ const SignupForm = () => {
               </div>
               <div className="form-control mt-6">
                 <input
-                  className="flex items-center text-bold mx-auto px-4 py-2 bg-white border border-gray-300 rounded shadow-sm hover:bg-gray-100"
+                  className="flex items-center text-bold mx-auto px-4 py-2 bg-cyan-200 border border-blue-900 rounded shadow-sm hover:bg-gray-100"
                   type="submit"
                   value="Create Account"
                 />

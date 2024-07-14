@@ -83,7 +83,7 @@ export default function Cart() {
                               }
                             }}
                             type="button"
-                            class="w-8 h-8 flex items-center justify-center bg-red-500 text-black  rounded-full border border-red-700  hover:bg-red-400 transition-colors"
+                            class="w-8 h-8 flex items-center justify-center bg-red-400 text-black  rounded-full border border-red-700  hover:bg-red-400 transition-colors"
                           >
                            <FaMinus />
                           </button>
@@ -93,7 +93,7 @@ export default function Cart() {
                               handleQuantity(item.id, item.quantity + 1);
                             }}
                             type="button"
-                            class="w-8 h-8 flex items-center justify-center bg-green-500  text-black rounded-full border border-green-700  hover:bg-green-400 transition-colors"
+                            class="w-8 h-8 flex items-center justify-center bg-green-400  text-black rounded-full border border-green-700  hover:bg-green-400 transition-colors"
                           >
                            <FaPlus />
                           </button>

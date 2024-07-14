@@ -1,7 +1,8 @@
 import React, { useContext,  } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { RxDropdownMenu } from "react-icons/rx";
-import logo from '../../assets/logo/mainlogo.png'
+import logo from '../../assets/logo/mainlogo.png';
+import loginLogo from '../../assets/logo/userloginlogo.png';
 // import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
 import { ShoppingCartIcon } from '@heroicons/react/20/solid';
@@ -49,7 +50,7 @@ const Navigation = () => {
           </div>
            
           <Link to="/"> <img
-                        className=" h-12 w-30"
+                        className=" h-14 w-30"
                         src={logo}
                         alt="Bookshop logo"
                       /></Link>
@@ -57,11 +58,11 @@ const Navigation = () => {
         <div className="navbar-center  hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-2"> {/* active navbar routes */}
             <li><NavLink to="/" className={({ isActive }) => 
-                isActive ? "text-black text-lg font-bold border-b-[4px] border-blue-900 "
+                isActive ? "text-black text-base font-bold border-b-[4px] border-blue-900 "
         : "text-black font-bold text-lg "
               }>Home</NavLink> </li>
             <li><NavLink to="/contact" className={({ isActive }) => 
-                isActive ? "text-black text-lg font-bold border-b-[4px] border-blue-900 "
+                isActive ? "text-black text-base  font-bold border-b-[4px] border-blue-900 "
         : "text-black font-bold text-lg "
               }>Contact</NavLink> </li>
           
@@ -92,8 +93,8 @@ const Navigation = () => {
 </label>
         <div className="dropdown dropdown-end">
     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-      <div className="w-10 rounded-full">
-      {user?<img className='rounded-full w-[50px] m-0 p-0' src={user.photoURL}  />:<img className='rounded-full w-[50px] m-0 p-0' src='https://i.ibb.co/Yt9hMws/signup-logo.png'  />}  
+      <div className="w-11 rounded-full">
+      {user?<img className='rounded-full w-[50px] m-0 p-0' src={user.photoURL}  />:<img className='rounded-full w-[50px] m-0 p-0' src={loginLogo}  />}  
       </div>
     </div>
     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow  bg-transparent text-black rounded-box w-52">
