@@ -3,9 +3,9 @@ import logo from '../../assets/logo/mainlogo.png'
 function Footer(){
     return(
         <div>
-            <footer className="footer  bg-yellow-200 p-10  text-black">
+            <footer className="footer  bg-cyan-200 p-10  text-black">
         <div>
-          <img className='w-[150px] h-[70px]  text-black  rounded-t-full border-4 border-yellow-500  ' src={logo} alt="" />
+          <img className='w-[150px] h-[70px]  text-black  rounded-t-full border-4 border-blue-900  ' src={logo} alt="" />
           <p className='italic font-bold'> PK Book Corner<br/>12 3 Main Uttra</p>
           <p>Dhaka , Bangladesh</p>
         </div> 

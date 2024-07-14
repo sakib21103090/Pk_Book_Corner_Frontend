@@ -130,7 +130,7 @@ export default function BooksList() {
       <div className="flex items-center justify-center pb-6">
         <div className="max-w-3xl mx-auto mt-8">
           <form onSubmit={handleSearch} className="relative">
-            <div className="flex items-center rounded-full shadow-md  bg-yellow-400  hover:shadow-lg transition-shadow duration-300">
+            <div className="flex items-center rounded-full shadow-md  bg-cyan-200  hover:shadow-lg transition-shadow duration-300">
               <input
                 className="w-full px-8 py-2 rounded-full text-gray-700 focus:outline-none placeholder-gray-500 bg-white bg-opacity-50 focus:bg-opacity-100 transition-all duration-300"
                 type="text"
@@ -427,7 +427,7 @@ function BooksCard({ products }) {
       <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
         {products.slice(0, visibleProducts).map((product) => (
           <Link to={`/booksinfopage/${product.id}`} key={product.id}>
-            <div className="group relative border-solid h-[480px] border-2 p-2 bg-gradient-to-br  from-yellow-100 to-gray-100 border--200">
+            <div className="group relative border-solid h-[480px] border-2 p-2 bg-gradient-to-br  from-cyan-50 to-gray-100 border--200">
               <div className="w-full h-[380px] overflow-hidden rounded-md bg-gray-200 ">
                 <img
                   src={product.images}
@@ -481,7 +481,7 @@ function BooksCard({ products }) {
         <div className="mt-8 flex justify-center">
           <button
             onClick={showMoreProducts}
-            className="mt-10  relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-medium text-black bg-yellow-500 rounded-lg group"
+            className="mt-10  relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-medium text-black bg-cyan-500 rounded-lg group"
           >
             <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-500 rounded-full group-hover:w-56 group-hover:h-56"></span>
             <span className="relative">Show More</span>

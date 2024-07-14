@@ -10,6 +10,11 @@ import BooksInfoPage from "../features/Pages/BooksInfoPage";
 import Main from "../Layouts/Main";
 import Error from "../features/Error/Error";
 import OrderDone from "../features/Pages/OrderDonePage";
+import UserProfile from "../features/UserPannel/User/UserProfile";
+import UserPannel from "../features/UserPannel/UserPannel";
+import PannelPage from "../features/UserPannel/PannelPage";
+import AdminProfile from "../features/UserPannel/Admin/AdminProfile";
+
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +50,27 @@ export const router = createBrowserRouter([
         path: "/orderDone/:id",
         element: <OrderDone></OrderDone>,
       },
+      
     ],
   },
+  {
+      
+    path: "/pannelPage",
+    element: <PannelPage></PannelPage>,
+    children :[
+      
+        {
+          path: "userprofile",
+          element: <UserProfile></UserProfile>,
+        },
+        {
+          path: "adminprofile",
+          element: <AdminProfile></AdminProfile>,
+        },
+      
+      
+      
+    ]
+  
+},
 ]);

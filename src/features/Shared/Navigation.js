@@ -28,7 +28,7 @@ const Navigation = () => {
   }
   
     return (
-        <div  className="navbar  max-w-screen-2xl mx-auto  bg-yellow-200">
+        <div  className="navbar  max-w-screen-2xl mx-auto  bg-cyan-200">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className=" text-3xl text-black lg:hidden"> {/* button for mobile screen */}
@@ -56,10 +56,15 @@ const Navigation = () => {
         </div>
         <div className="navbar-center  hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-2"> {/* active navbar routes */}
-            <li><NavLink className='text-black  font-bold' to="/">Home</NavLink> </li>
-            <li><NavLink className='text-black  font-bold' to="/contact">Contact</NavLink> </li>
-           
-           {user&& <li><NavLink className='text-black font-bold' to="/dashboard">Dashboard</NavLink> </li>}
+            <li><NavLink to="/" className={({ isActive }) => 
+                isActive ? "text-black text-lg font-bold border-b-[4px] border-blue-900 "
+        : "text-black font-bold text-lg "
+              }>Home</NavLink> </li>
+            <li><NavLink to="/contact" className={({ isActive }) => 
+                isActive ? "text-black text-lg font-bold border-b-[4px] border-blue-900 "
+        : "text-black font-bold text-lg "
+              }>Contact</NavLink> </li>
+          
 
            {/* {user ? <button onClick={handleLogOut} className="btn btn-sm btn-outline bg-gray-400 ">Log Out</button>:<Link to="/login" className="btn btn-sm  h-[30px]  class-card-bg hover:bg-lime-400 md:mx-4">Login</Link> }
           */}
@@ -71,7 +76,7 @@ const Navigation = () => {
         <Link to="/cart">
                       <button
                         type="button"
-                        className="relative rounded-full bg-gray-700 p-1 text-white "
+                        className="relative rounded-full bg-blue-900 p-1 text-white "
                       >
                         <span className="absolute -inset-1.5" />
                         <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
@@ -79,7 +84,7 @@ const Navigation = () => {
                       </button>
                       </Link>
                       {/* cart add value */}
-                      {items.length > 0 && (<span className="inline-flex items-center rounded-md mb-7 -ml-2 bg-purple-600 px-2 py-1 text-xs font-medium text-white ring-1 ring-inset ring-purple-700/10">{items.length}</span>)}
+                      {items.length > 0 && (<span className="inline-flex items-center rounded-md mb-7 -ml-2 bg-blue-600 px-2 py-1 text-xs font-medium text-white ring-1 ring-inset ring-purple-700/10">{items.length}</span>)}
 
         <label className="swap swap-rotate">
   
@@ -94,7 +99,7 @@ const Navigation = () => {
     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow  bg-transparent text-black rounded-box w-52">
       <li>
         <p className="justify-between font-extrabold">
-          Profile
+        <Link to="/pannelPage" >user Pannel</Link> 
         </p>
         <p className="justify-between font-extrabold">
         {user ? <button onClick={handleLogOut} >Log Out</button>:<Link to="/login" >Login</Link> }
