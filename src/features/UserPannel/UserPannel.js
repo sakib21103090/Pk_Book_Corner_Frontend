@@ -1,8 +1,12 @@
 import { NavLink, Outlet, Navigate, Link } from "react-router-dom";
 import logo from "../../assets/logo/mainlogo.png";
+import { selectLoginInUser } from "../Auth/Components/AuthSlice";
+import { useSelector } from "react-redux";
 
 function UserPannel() {
-  const isAdmin = false; // Change this to your actual logic
+  const user = useSelector(selectLoginInUser);
+  const isAdmin = user?.role;
+  console.log(isAdmin) // Change this to your actual logic
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -23,7 +27,7 @@ function UserPannel() {
           )}
           <Outlet /> {/* This will render the matched child route components */}
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side pb-4 rounded h-full pt-2">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-72 h-full bg-white text-base-content shadow-lg">
             {/* Sidebar content here */}
@@ -40,7 +44,11 @@ function UserPannel() {
                 <li className="mb-6">
                   <NavLink
                     to="/pannelPage/adminprofile"
-                    className="text-lime-500 text-2xl  hover:text-lime-700"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-black text-lg font-bold border-b-[4px] border-blue-900 "
+                        : "text-black font-bold text-lg "
+                    }
                   >
                     Admin Profile
                   </NavLink>

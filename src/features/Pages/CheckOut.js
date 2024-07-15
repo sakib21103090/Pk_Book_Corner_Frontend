@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectCartItems } from "../Cart/CartSlice";
 import { Link, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { selectLoginInUser, UpdateUserCheckOutAsync } from "../Auth/Components/AuthSlice";
+import {
+  selectLoginInUser,
+  UpdateUserCheckOutAsync,
+} from "../Auth/Components/AuthSlice";
 import { createOrderAsync, selectCurrentOrder } from "../Orders/OrdersSlice";
 
 export default function Checkout() {
@@ -25,7 +28,8 @@ export default function Checkout() {
   const [isOrderButtonEnabled, setIsOrderButtonEnabled] = useState(false);
 
   useEffect(() => {
-    const isAllFieldsFilled = selectedAddress && deliveryCharge > 0 && paymentMethod !== "";
+    const isAllFieldsFilled =
+      selectedAddress && deliveryCharge > 0 && paymentMethod !== "";
     setIsOrderButtonEnabled(isAllFieldsFilled);
   }, [selectedAddress, deliveryCharge, paymentMethod]);
 
@@ -53,24 +57,45 @@ export default function Checkout() {
 
   const onSubmit = (data) => {
     dispatch(
-      UpdateUserCheckOutAsync({ ...user, addresses: [...user?.addresses, data] })
+      UpdateUserCheckOutAsync({
+        ...user,
+        addresses: [...user?.addresses, data],
+      })
     );
     reset();
   };
 
   const handleOrder = () => {
-    const order = {items, TotalPrice, totalItems, user, paymentMethod, selectedAddress, deliveryCharge, status: 'pending'};
+    const order = {
+      items,
+      TotalPrice,
+      totalItems,
+      Subtotal,
+      user,
+      paymentMethod,
+      selectedAddress,
+      deliveryCharge,
+      status: "pending",
+    };
     dispatch(createOrderAsync(order));
   };
 
   return (
     <>
-      {currentOrder && <Navigate to={`/orderDone/${currentOrder.id}`} replace={true}></Navigate>}
+      {currentOrder && (
+        <Navigate
+          to={`/orderDone/${currentOrder.id}`}
+          replace={true}
+        ></Navigate>
+      )}
       <div className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 lg:px-8 mb-4 ">
         <div className="mx-auto max-w-7xl px-4 bg-gradient-to-br from-indigo-100 to-yellow-100 lg:px-8 rounded-2xl">
           <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
             <div className="lg:col-span-3">
-              <form className="px-5 py-12 mt-12" onSubmit={handleSubmit(onSubmit)}>
+              <form
+                className="px-5 py-12 mt-12"
+                onSubmit={handleSubmit(onSubmit)}
+              >
                 <div className="space-y-12">
                   <div className="border-b border-gray-900/10 pb-12">
                     <h2 className="text-2xl font-semibold  pb-8  text-black">
@@ -84,7 +109,9 @@ export default function Checkout() {
                           name="name"
                           placeholder="Name"
                           className="border rounded-md p-2 w-full"
-                          {...register("name", { required: "Name is required" })}
+                          {...register("name", {
+                            required: "Name is required",
+                          })}
                         />
                         {errors.name && (
                           <p className="text-red-500 text-sm mt-1">
@@ -135,16 +162,16 @@ export default function Checkout() {
                       <div className="col-span-2">
                         <input
                           type="text"
-                          name="address"
-                          placeholder="Address"
+                          name="country"
+                          placeholder="country"
                           className="border rounded-md p-2 w-full"
-                          {...register("address", {
-                            required: "Address is required",
+                          {...register("country", {
+                            required: "country is required",
                           })}
                         />
-                        {errors.address && (
+                        {errors.country && (
                           <p className="text-red-500 text-sm mt-1">
-                            {errors.address.message}
+                            {errors.country.message}
                           </p>
                         )}
                       </div>
@@ -154,7 +181,9 @@ export default function Checkout() {
                           name="city"
                           placeholder="City"
                           className="border rounded-md p-2 w-full"
-                          {...register("city", { required: "City is required" })}
+                          {...register("city", {
+                            required: "City is required",
+                          })}
                         />
                         {errors.city && (
                           <p className="text-red-500 text-sm mt-1">
@@ -183,7 +212,7 @@ export default function Checkout() {
 
                   <div className="flex items-center justify-end gap-x-6">
                     <button
-                      onClick={e => reset()}
+                      onClick={(e) => reset()}
                       type="button"
                       className="text-sm font-semibold leading-6 text-gray-900"
                     >
@@ -232,15 +261,24 @@ export default function Checkout() {
                         </div>
                       </div>
                       <div className="hidden sm:flex sm:flex-col sm:items-end">
-                        <p className="text-xs leading-5 text-black">City: {address.city}</p>
-                        <p className="text-xs leading-5 text-black">Postal Code: {address.postalCode}</p>
+                        <p className="text-sm font-semibold leading-6 text-black">
+                        Country:{address.country}
+                        </p>
+                        <p className="text-xs leading-5 text-black">
+                          City: {address.city}
+                        </p>
+                        <p className="text-xs leading-5 text-black">
+                          Postal Code: {address.postalCode}
+                        </p>
                       </div>
                     </li>
                   ))}
                 </ul>
 
                 <div className="mb-6">
-                  <h3 className="text-xl font-semibold mb-4">Delivery Options</h3>
+                  <h3 className="text-xl font-semibold mb-4">
+                    Delivery Options
+                  </h3>
                   <div className="flex space-x-4">
                     <button
                       type="button"

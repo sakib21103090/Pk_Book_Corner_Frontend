@@ -286,6 +286,7 @@
       "photo": "ki",
       "email": "k@gmail.com",
       "password": "@12345Aa",
+      "role": "admin",
       "addresses": [
         {
           "name": "sakibur Rahman ",
@@ -345,27 +346,52 @@
       "email": "a@gmail.com",
       "password": "@12345Aa",
       "addresses": []
+    },
+    {
+      "id": "8513",
+      "displayName": "habib",
+      "photo": "https://i.ibb.co/7WHh3mf/Whats-App-Image-2024-04-19-at-8-13-44-PM.jpg",
+      "email": "h@gmail.com",
+      "password": "A12345a@",
+      "addresses": [
+        {
+          "name": "hahib",
+          "email": "h@gmail.com",
+          "phoneNumber": "01776907103",
+          "address": "dhaka",
+          "city": "bogra",
+          "postalCode": "123"
+        },
+        {
+          "name": "a",
+          "email": "b@gmail.ocm",
+          "phoneNumber": "01776907103",
+          "country": "Bangladesh",
+          "city": "dhaka",
+          "postalCode": "123"
+        }
+      ]
     }
   ],
   "cart": [
     {
-      "id": "2",
-      "BookName": "আশ্চর্য প্রদীপ",
-      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 2",
-      "price": 400,
-      "discountPercentage": 40,
-      "rating": 4,
-      "stock": 110,
-      "AuthorName": "Muhammed Zafar Iqbal",
-      "category": "Science and Technology",
-      "images": "https://i.ibb.co/HP1zQvN/Aladiner-Acharjo-Prodip.png",
+      "id": "1",
+      "BookName": "বাংলাদেশের মুক্তিযুদ্ধ",
+      "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 1",
+      "price": 100,
+      "discountPercentage": 10,
+      "rating": 3.1,
+      "stock": 109,
+      "AuthorName": "Mohammad Zakaria",
+      "category": "Educational Books",
+      "images": "https://i.ibb.co/WtQNb0p/image.jpg",
       "quantity": 1,
-      "user": "170f"
+      "user": "8513"
     }
   ],
   "orders": [
     {
-      "id": "aa5e",
+      "id": "5542",
       "items": [
         {
           "id": "1",
@@ -378,315 +404,61 @@
           "AuthorName": "Mohammad Zakaria",
           "category": "Educational Books",
           "images": "https://i.ibb.co/WtQNb0p/image.jpg",
-          "quantity": 5,
-          "user": "170f"
+          "quantity": 1,
+          "user": "8513"
+        },
+        {
+          "id": "3",
+          "BookName": "Mohakash",
+          "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 3",
+          "price": 130,
+          "rating": 3.4,
+          "stock": 115,
+          "AuthorName": "Asif Azim",
+          "category": "Science and Technology",
+          "images": "https://i.ibb.co/GQgZGQY/mohabisso.jpg",
+          "quantity": 1,
+          "user": "8513"
         }
       ],
-      "TotalPrice": 540,
-      "totalItems": 5,
+      "TotalPrice": 310,
+      "totalItems": 2,
+      "Subtotal": 220,
       "user": {
-        "id": "170f",
-        "displayName": "nai",
-        "photo": "mama",
-        "email": "a@gmail.com",
-        "password": "@12345Aa",
+        "id": "8513",
+        "displayName": "habib",
+        "photo": "https://i.ibb.co/7WHh3mf/Whats-App-Image-2024-04-19-at-8-13-44-PM.jpg",
+        "email": "h@gmail.com",
+        "password": "A12345a@",
         "addresses": [
           {
-            "name": "sakib",
-            "email": "gt@gmail.com",
-            "phoneNumber": "801776907103",
-            "address": "ytuty",
-            "city": "tyu",
-            "postalCode": "tyu"
+            "name": "hahib",
+            "email": "h@gmail.com",
+            "phoneNumber": "01776907103",
+            "address": "dhaka",
+            "city": "bogra",
+            "postalCode": "123"
+          },
+          {
+            "name": "a",
+            "email": "b@gmail.ocm",
+            "phoneNumber": "01776907103",
+            "country": "Bangladesh",
+            "city": "dhaka",
+            "postalCode": "123"
           }
         ]
       },
       "paymentMethod": "Cash on Delivery",
       "selectedAddress": {
-        "name": "sakib",
-        "email": "gt@gmail.com",
-        "phoneNumber": "801776907103",
-        "address": "ytuty",
-        "city": "tyu",
-        "postalCode": "tyu"
+        "name": "a",
+        "email": "b@gmail.ocm",
+        "phoneNumber": "01776907103",
+        "country": "Bangladesh",
+        "city": "dhaka",
+        "postalCode": "123"
       },
       "deliveryCharge": 90,
-      "status": "pending"
-    },
-    {
-      "id": "3b68",
-      "items": [
-        {
-          "id": "2",
-          "BookName": "আশ্চর্য প্রদীপ",
-          "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 2",
-          "price": 400,
-          "discountPercentage": 40,
-          "rating": 4,
-          "stock": 110,
-          "AuthorName": "Muhammed Zafar Iqbal",
-          "category": "Science and Technology",
-          "images": "https://i.ibb.co/HP1zQvN/Aladiner-Acharjo-Prodip.png",
-          "quantity": 2,
-          "user": "170f"
-        },
-        {
-          "id": "3",
-          "BookName": "Mohakash",
-          "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 3",
-          "price": 130,
-          "rating": 3.4,
-          "stock": 115,
-          "AuthorName": "Asif Azim",
-          "category": "Science and Technology",
-          "images": "https://i.ibb.co/GQgZGQY/mohabisso.jpg",
-          "quantity": 1,
-          "user": "170f"
-        }
-      ],
-      "TotalPrice": 730,
-      "totalItems": 3,
-      "user": {
-        "id": "170f",
-        "displayName": "nai",
-        "photo": "mama",
-        "email": "a@gmail.com",
-        "password": "@12345Aa",
-        "addresses": [
-          {
-            "name": "sakib",
-            "email": "gt@gmail.com",
-            "phoneNumber": "801776907103",
-            "address": "ytuty",
-            "city": "tyu",
-            "postalCode": "tyu"
-          },
-          {
-            "name": "nildoriya",
-            "email": "doriya@gmail.com",
-            "phoneNumber": "01776907103",
-            "address": "dhaka",
-            "city": "bogra",
-            "postalCode": "1230"
-          }
-        ]
-      },
-      "paymentMethod": "Cash on Delivery",
-      "selectedAddress": {
-        "name": "nildoriya",
-        "email": "doriya@gmail.com",
-        "phoneNumber": "01776907103",
-        "address": "dhaka",
-        "city": "bogra",
-        "postalCode": "1230"
-      },
-      "deliveryCharge": 120,
-      "status": "pending"
-    },
-    {
-      "id": "6bda",
-      "items": [
-        {
-          "id": "2",
-          "BookName": "আশ্চর্য প্রদীপ",
-          "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 2",
-          "price": 400,
-          "discountPercentage": 40,
-          "rating": 4,
-          "stock": 110,
-          "AuthorName": "Muhammed Zafar Iqbal",
-          "category": "Science and Technology",
-          "images": "https://i.ibb.co/HP1zQvN/Aladiner-Acharjo-Prodip.png",
-          "quantity": 1,
-          "user": "170f"
-        },
-        {
-          "id": "1",
-          "BookName": "বাংলাদেশের মুক্তিযুদ্ধ",
-          "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 1",
-          "price": 100,
-          "discountPercentage": 10,
-          "rating": 3.1,
-          "stock": 109,
-          "AuthorName": "Mohammad Zakaria",
-          "category": "Educational Books",
-          "images": "https://i.ibb.co/WtQNb0p/image.jpg",
-          "quantity": 1,
-          "user": "170f"
-        }
-      ],
-      "TotalPrice": 330,
-      "totalItems": 2,
-      "user": {
-        "id": "170f",
-        "displayName": "nai",
-        "photo": "mama",
-        "email": "a@gmail.com",
-        "password": "@12345Aa",
-        "addresses": [
-          {
-            "name": "sakib",
-            "email": "gt@gmail.com",
-            "phoneNumber": "801776907103",
-            "address": "ytuty",
-            "city": "tyu",
-            "postalCode": "tyu"
-          },
-          {
-            "name": "nildoriya",
-            "email": "doriya@gmail.com",
-            "phoneNumber": "01776907103",
-            "address": "dhaka",
-            "city": "bogra",
-            "postalCode": "1230"
-          }
-        ]
-      },
-      "paymentMethod": "",
-      "selectedAddress": null,
-      "deliveryCharge": 0,
-      "status": "pending"
-    },
-    {
-      "id": "a9c3",
-      "items": [
-        {
-          "id": "2",
-          "BookName": "আশ্চর্য প্রদীপ",
-          "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 2",
-          "price": 400,
-          "discountPercentage": 40,
-          "rating": 4,
-          "stock": 110,
-          "AuthorName": "Muhammed Zafar Iqbal",
-          "category": "Science and Technology",
-          "images": "https://i.ibb.co/HP1zQvN/Aladiner-Acharjo-Prodip.png",
-          "quantity": 1,
-          "user": "170f"
-        },
-        {
-          "id": "3",
-          "BookName": "Mohakash",
-          "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 3",
-          "price": 130,
-          "rating": 3.4,
-          "stock": 115,
-          "AuthorName": "Asif Azim",
-          "category": "Science and Technology",
-          "images": "https://i.ibb.co/GQgZGQY/mohabisso.jpg",
-          "quantity": 1,
-          "user": "170f"
-        }
-      ],
-      "TotalPrice": 370,
-      "totalItems": 2,
-      "user": {
-        "id": "170f",
-        "displayName": "nai",
-        "photo": "mama",
-        "email": "a@gmail.com",
-        "password": "@12345Aa",
-        "addresses": [
-          {
-            "name": "sakib",
-            "email": "gt@gmail.com",
-            "phoneNumber": "801776907103",
-            "address": "ytuty",
-            "city": "tyu",
-            "postalCode": "tyu"
-          },
-          {
-            "name": "nildoriya",
-            "email": "doriya@gmail.com",
-            "phoneNumber": "01776907103",
-            "address": "dhaka",
-            "city": "bogra",
-            "postalCode": "1230"
-          }
-        ]
-      },
-      "paymentMethod": "",
-      "selectedAddress": null,
-      "deliveryCharge": 0,
-      "status": "pending"
-    },
-    {
-      "id": "68e3",
-      "items": [
-        {
-          "id": "2",
-          "BookName": "আশ্চর্য প্রদীপ",
-          "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 2",
-          "price": 400,
-          "discountPercentage": 40,
-          "rating": 4,
-          "stock": 110,
-          "AuthorName": "Muhammed Zafar Iqbal",
-          "category": "Science and Technology",
-          "images": "https://i.ibb.co/HP1zQvN/Aladiner-Acharjo-Prodip.png",
-          "quantity": 1,
-          "user": "170f"
-        },
-        {
-          "id": "1",
-          "BookName": "বাংলাদেশের মুক্তিযুদ্ধ",
-          "description": " This design creates a more visually appealing and unique look for your book information page, with a 3D card effect, gradient background, and improved typography. Description for Book 1",
-          "price": 100,
-          "discountPercentage": 10,
-          "rating": 3.1,
-          "stock": 109,
-          "AuthorName": "Mohammad Zakaria",
-          "category": "Educational Books",
-          "images": "https://i.ibb.co/WtQNb0p/image.jpg",
-          "quantity": 1,
-          "user": "170f"
-        }
-      ],
-      "TotalPrice": 450,
-      "totalItems": 2,
-      "user": {
-        "id": "170f",
-        "displayName": "nai",
-        "photo": "mama",
-        "email": "a@gmail.com",
-        "password": "@12345Aa",
-        "addresses": [
-          {
-            "name": "sakib",
-            "email": "gt@gmail.com",
-            "phoneNumber": "801776907103",
-            "address": "ytuty",
-            "city": "tyu",
-            "postalCode": "tyu"
-          },
-          {
-            "name": "nildoriya",
-            "email": "doriya@gmail.com",
-            "phoneNumber": "01776907103",
-            "address": "dhaka",
-            "city": "bogra",
-            "postalCode": "1230"
-          },
-          {
-            "name": "sakib",
-            "email": "2h@gmail.com",
-            "phoneNumber": "01776907103",
-            "address": "ytuty",
-            "city": "dadsfsdfsdfsdf",
-            "postalCode": "11111"
-          }
-        ]
-      },
-      "paymentMethod": "Cash on Delivery",
-      "selectedAddress": {
-        "name": "sakib",
-        "email": "gt@gmail.com",
-        "phoneNumber": "801776907103",
-        "address": "ytuty",
-        "city": "tyu",
-        "postalCode": "tyu"
-      },
-      "deliveryCharge": 120,
       "status": "pending"
     }
   ]
