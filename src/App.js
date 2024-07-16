@@ -8,6 +8,8 @@ import { fetchItemsByUserIdAsync } from "./features/Cart/CartSlice";
 import { selectLoginInUser } from "./features/Auth/Components/AuthSlice";
 import { useEffect } from "react";
 
+import { fetchLoggedInUserAsync } from "./features/UserPannel/User/UserSlice";
+
 function AppContent() {
   const user = useSelector(selectLoginInUser);
   const dispatch = useDispatch();
@@ -15,6 +17,7 @@ function AppContent() {
   useEffect(() => {
     if (user) {
       dispatch(fetchItemsByUserIdAsync(user.id));
+      dispatch(fetchLoggedInUserAsync(user.id));
     }
   }, [dispatch, user]);
 

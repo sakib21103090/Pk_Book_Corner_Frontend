@@ -9,7 +9,7 @@ function OrderDone() {
   const dispatch = useDispatch();
   const params = useParams();
   const user = useSelector(selectLoginInUser);
-
+  
   useEffect(() => {
     dispatch(resetCartAsync(user.id));
     dispatch(resetOrder());
@@ -21,6 +21,7 @@ function OrderDone() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8">
+   
       <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-xl shadow-2xl">
         <div>
           <img className="mx-auto   h-20 w-auto" src={logo} alt="Your Company Logo" />
@@ -57,6 +58,7 @@ function OrderDone() {
             Return to Home
           </Link>
         </div>
+        
       </div>
     </div>
   );

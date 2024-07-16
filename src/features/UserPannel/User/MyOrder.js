@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectLoginInUser } from "../../Auth/Components/AuthSlice";
-import { fetchLoggedInUserOrderAsync, selectUsersOrder } from "./UserSlice";
+
+import { fetchLoggedInUserOrderAsync, selectUserInfo, selectUsersOrder } from "./UserSlice";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 
 export default function MyOrder() {
-  const user = useSelector(selectLoginInUser);
+  const user = useSelector(selectUserInfo);
   const orders = useSelector(selectUsersOrder);
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
@@ -41,13 +41,10 @@ export default function MyOrder() {
             </button>
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {filteredOrders &&
-            filteredOrders.map((order) => (
-              <div
-                key={order.id}
-                className="bg-white shadow-lg rounded-lg mb-8"
-              >
+        {filteredOrders.length > 0 ? (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            {filteredOrders.map((order) => (
+              <div key={order.id} className="bg-white shadow-lg rounded-lg mb-8">
                 <div className="p-6">
                   <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
                     Order #{order.id}
@@ -58,10 +55,7 @@ export default function MyOrder() {
                   <div className="flow-root">
                     <ul className="-my-6 divide-y divide-gray-200">
                       {order.items.map((item) => (
-                        <li
-                          key={item.id}
-                          className="flex flex-col sm:flex-row py-6"
-                        >
+                        <li key={item.id} className="flex flex-col sm:flex-row py-6">
                           <div className="h-24 w-full sm:w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                             <img
                               src={item.images}
@@ -131,13 +125,13 @@ export default function MyOrder() {
                     <div className="flex gap-x-4">
                       <div className="min-w-0 flex-auto">
                         <p className="text-sm font-semibold leading-6 text-gray-900">
-                          Name:{order.selectedAddress.name}
+                          Name: {order.selectedAddress.name}
                         </p>
                         <p className="mt-1 truncate text-xs leading-5 text-gray-500">
-                          Email:{order.selectedAddress.email}
+                          Email: {order.selectedAddress.email}
                         </p>
                         <p className="mt-1 truncate text-xs leading-5 text-gray-500">
-                          Phone:{order.selectedAddress.phoneNumber}
+                          Phone: {order.selectedAddress.phoneNumber}
                         </p>
                       </div>
                     </div>
@@ -146,17 +140,22 @@ export default function MyOrder() {
                         Country: {order.selectedAddress.country}
                       </p>
                       <p className="text-sm leading-6 text-gray-900">
-                        Phone: {order.selectedAddress.city}
+                        City: {order.selectedAddress.city}
                       </p>
                       <p className="text-sm leading-6 text-gray-500">
-                      postalCode{order.selectedAddress.postalCode}
+                        Postal Code: {order.selectedAddress.postalCode}
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
-        </div>
+          </div>
+        ) : (
+          <div className="text-center text-red-700 text-xl font-medium">
+            No orders found
+          </div>
+        )}
       </div>
     </div>
   );

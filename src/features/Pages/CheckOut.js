@@ -4,10 +4,11 @@ import { selectCartItems } from "../Cart/CartSlice";
 import { Link, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import {
-  selectLoginInUser,
+ 
   UpdateUserCheckOutAsync,
 } from "../Auth/Components/AuthSlice";
 import { createOrderAsync, selectCurrentOrder } from "../Orders/OrdersSlice";
+import { selectUserInfo } from "../UserPannel/User/UserSlice";
 
 export default function Checkout() {
   const items = useSelector(selectCartItems);
@@ -21,7 +22,7 @@ export default function Checkout() {
   } = useForm({
     mode: "onChange",
   });
-  const user = useSelector(selectLoginInUser);
+  const user = useSelector(selectUserInfo);
   const currentOrder = useSelector(selectCurrentOrder);
   const [deliveryCharge, setDeliveryCharge] = useState(0);
   const [paymentMethod, setPaymentMethod] = useState("");
