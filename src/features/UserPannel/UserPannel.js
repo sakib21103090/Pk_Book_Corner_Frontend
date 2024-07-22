@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 
 function UserPannel() {
   const user = useSelector(selectLoginInUser);
-  const isAdmin = user?.role;
-  console.log(isAdmin) // Change this to your actual logic
+  const isAdmin = user?.role === "admin"; // Check if the user's role is "admin"
+  console.log(isAdmin); // Check this in the console for debugging
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -52,7 +52,20 @@ function UserPannel() {
                   >
                     Admin Profile
                   </NavLink>
+                </li>  
+                <li className="mb-6">
+                  <NavLink
+                    to="/pannelPage/addProduct"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-black text-lg font-bold border-b-[4px] border-blue-900 "
+                        : "text-black font-bold text-lg "
+                    }
+                  >
+                    Add A Product
+                  </NavLink>
                 </li>
+
                 {/* Repeat for other admin links if needed */}
               </>
             ) : (

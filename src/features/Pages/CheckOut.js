@@ -100,7 +100,7 @@ export default function Checkout() {
                 <div className="space-y-12">
                   <div className="border-b border-gray-900/10 pb-12">
                     <h2 className="text-2xl font-semibold  pb-8  text-black">
-                      Personal Information
+                    Add Shipping Information
                     </h2>
 
                     <div className="grid grid-cols-2 gap-4">

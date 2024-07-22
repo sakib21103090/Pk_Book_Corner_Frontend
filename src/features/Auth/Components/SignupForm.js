@@ -19,6 +19,7 @@ const SignupForm = () => {
         email: data.email,
         password: data.password,
         addresses:[],
+        role:'user',
       }));
       Swal.fire({
         icon: 'success',

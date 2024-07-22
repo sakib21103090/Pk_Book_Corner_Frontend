@@ -15,6 +15,8 @@ import UserPannel from "../features/UserPannel/UserPannel";
 import PannelPage from "../features/UserPannel/PannelPage";
 import AdminProfile from "../features/UserPannel/Admin/AdminProfile";
 import MyOrder from "../features/UserPannel/User/MyOrder";
+import Logout from "../features/Auth/Components/LogOut";
+import AddProduct from "../features/UserPannel/Admin/AddProduct";
 
 
 export const router = createBrowserRouter([
@@ -34,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         element: <UserSignUp></UserSignUp>,
+      },
+      {
+        path: "/logOut",
+        element: <Logout></Logout>,
       },
       {
         path: "/cart",
@@ -73,7 +79,11 @@ export const router = createBrowserRouter([
           path: "myOrder",
           element: <MyOrder></MyOrder>,
         },
-      
+      // admin route
+      {
+        path: "addProduct",
+        element: <AddProduct></AddProduct>,
+      },
       
       
     ]

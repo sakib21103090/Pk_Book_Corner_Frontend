@@ -27,5 +27,10 @@ export function LoginUser(loginInfo) {
   });
 }
 
-
+export function SignOut(userId) {
+  return new Promise(async (resolve) => {
+  // todo on server we will remove user section information
+    resolve({ data:'success' });
+  });
+}
 

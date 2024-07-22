@@ -18,14 +18,12 @@ export default function UserProfile() {
 
   const handleRemove = (e, index) => {
     const newUser = { ...user, addresses: [...user.addresses] };
-    console.log(newUser);
     newUser.addresses.splice(index, 1);
     dispatch(UpdateUserAsync(newUser));
   };
 
   const handleEdit = (addressUpdate, index) => {
     const newUser = { ...user, addresses: [...user.addresses] };
-    console.log(newUser);
     newUser.addresses.splice(index, 1, addressUpdate);
     dispatch(UpdateUserAsync(newUser));
     setSelectedEditIndex(-1);
@@ -46,7 +44,9 @@ export default function UserProfile() {
       </div>
       <div className="mt-8 space-y-8">
         <div className="text-center">
-          <p className="mt-0.5 text-xl font-bold text-green-800">Shipping Address:</p>
+          <p className="mt-0.5 text-xl font-bold text-green-800">
+            Shipping Address
+          </p>
           <p className="mt-1 text-lg text-indigo-600">
             Here you can see your profile details and update your information.
           </p>
@@ -61,179 +61,182 @@ export default function UserProfile() {
                   reset();
                 })}
               >
-                <div className="space-y-12">
-                  <div className="border-b border-gray-300 pb-12">
-                    <h2 className="text-2xl font-semibold pb-8 text-indigo-800">
-                      Personal Information
-                    </h2>
-
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <input
-                          type="text"
-                          name="name"
-                          placeholder="Name"
-                          className="border rounded-lg p-3 w-full"
-                          {...register("name", {
-                            required: "Name is required",
-                          })}
-                        />
-                        {errors.name && (
-                          <p className="text-red-500 text-sm mt-1">
-                            {errors.name.message}
-                          </p>
-                        )}
-                      </div>
-                      <div>
-                        <input
-                          type="email"
-                          name="email"
-                          placeholder="Email"
-                          className="border rounded-lg p-3 w-full"
-                          {...register("email", {
-                            required: "Email is required",
-                            pattern: {
-                              value: /^\S+@\S+$/i,
-                              message: "Invalid email address",
-                            },
-                          })}
-                        />
-                        {errors.email && (
-                          <p className="text-red-500 text-sm mt-1">
-                            {errors.email.message}
-                          </p>
-                        )}
-                      </div>
-                      <div className="col-span-2">
-                        <input
-                          type="tel"
-                          name="phoneNumber"
-                          placeholder="Phone Number"
-                          className="border rounded-lg p-3 w-full"
-                          {...register("phoneNumber", {
-                            required: "Phone Number is required",
-                            pattern: {
-                              value: /^\d+$/,
-                              message: "Invalid phone number",
-                            },
-                          })}
-                        />
-                        {errors.phoneNumber && (
-                          <p className="text-red-500 text-sm mt-1">
-                            {errors.phoneNumber.message}
-                          </p>
-                        )}
-                      </div>
-                      <div className="col-span-2">
-                        <input
-                          type="text"
-                          name="country"
-                          placeholder="Country"
-                          className="border rounded-lg p-3 w-full"
-                          {...register("country", {
-                            required: "Country is required",
-                          })}
-                        />
-                        {errors.country && (
-                          <p className="text-red-500 text-sm mt-1">
-                            {errors.country.message}
-                          </p>
-                        )}
-                      </div>
-                      <div>
-                        <input
-                          type="text"
-                          name="city"
-                          placeholder="City"
-                          className="border rounded-lg p-3 w-full"
-                          {...register("city", {
-                            required: "City is required",
-                          })}
-                        />
-                        {errors.city && (
-                          <p className="text-red-500 text-sm mt-1">
-                            {errors.city.message}
-                          </p>
-                        )}
-                      </div>
-                      <div>
-                        <input
-                          type="tel"
-                          name="postalCode"
-                          placeholder="Postal Code"
-                          className="border rounded-lg p-3 w-full"
-                          {...register("postalCode", {
-                            required: "Postal Code is required",
-                          })}
-                        />
-                        {errors.postalCode && (
-                          <p className="text-red-500 text-sm mt-1">
-                            {errors.postalCode.message}
-                          </p>
-                        )}
-                      </div>
+                <div className="space-y-8">
+                  <h2 className="text-2xl font-semibold pb-8 text-indigo-800">
+                    Personal Information
+                  </h2>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        className="border rounded-lg p-3 w-full"
+                        {...register("name", {
+                          required: "Name is required",
+                        })}
+                        defaultValue={address.name}
+                      />
+                      {errors.name && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.name.message}
+                        </p>
+                      )}
+                    </div>
+                    <div>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        className="border rounded-lg p-3 w-full"
+                        {...register("email", {
+                          required: "Email is required",
+                          pattern: {
+                            value: /^\S+@\S+$/i,
+                            message: "Invalid email address",
+                          },
+                        })}
+                        defaultValue={address.email}
+                      />
+                      {errors.email && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.email.message}
+                        </p>
+                      )}
+                    </div>
+                    <div className="col-span-2">
+                      <input
+                        type="tel"
+                        name="phoneNumber"
+                        placeholder="Phone Number"
+                        className="border rounded-lg p-3 w-full"
+                        {...register("phoneNumber", {
+                          required: "Phone Number is required",
+                          pattern: {
+                            value: /^\d+$/,
+                            message: "Invalid phone number",
+                          },
+                        })}
+                        defaultValue={address.phoneNumber}
+                      />
+                      {errors.phoneNumber && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.phoneNumber.message}
+                        </p>
+                      )}
+                    </div>
+                    <div className="col-span-2">
+                      <input
+                        type="text"
+                        name="country"
+                        placeholder="Country"
+                        className="border rounded-lg p-3 w-full"
+                        {...register("country", {
+                          required: "Country is required",
+                        })}
+                        defaultValue={address.country}
+                      />
+                      {errors.country && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.country.message}
+                        </p>
+                      )}
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        name="city"
+                        placeholder="City"
+                        className="border rounded-lg p-3 w-full"
+                        {...register("city", {
+                          required: "City is required",
+                        })}
+                        defaultValue={address.city}
+                      />
+                      {errors.city && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.city.message}
+                        </p>
+                      )}
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        name="postalCode"
+                        placeholder="Postal Code"
+                        className="border rounded-lg p-3 w-full"
+                        {...register("postalCode", {
+                          required: "Postal Code is required",
+                        })}
+                        defaultValue={address.postalCode}
+                      />
+                      {errors.postalCode && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.postalCode.message}
+                        </p>
+                      )}
                     </div>
                   </div>
-
-                  <div className="flex items-center justify-end gap-x-6">
+                  <div className="flex items-center justify-end gap-x-6 mt-8">
                     <button
-                      onClick={(e) => setSelectedEditIndex(-1)}
-                      type="submit"
-                      className="rounded-md px-3 py-2 text-sm font-semibold text-gray-600 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setSelectedEditIndex(-1);
+                      }}
+                      className="rounded-md px-3 py-2 text-sm font-semibold text-gray-600 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
-                      className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-lg hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                      className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-lg hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
                     >
                       Update
                     </button>
                   </div>
                 </div>
               </form>
-            ) : null}
-
-            <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <p className="text-lg text-indigo-900 mt-1">
-                <span className="font-bold">Username: </span>
-                {address.name || "Not provided"}
-              </p>
-
-              <p className="text-lg text-indigo-900 mt-1">
-                <span className="font-bold">Email: </span>
-                {address.email || "Not provided"}
-              </p>
-              <p className="text-lg text-indigo-900 mt-1">
-                <span className="font-bold">Phone Number: </span>
-                {address.phoneNumber || "Not provided"}
-              </p>
-
-              <p className="text-lg text-indigo-900 mt-1">
-                <span className="font-bold">Country: </span>
-                {address.country || "Not provided"}
-              </p>
-              <p className="text-lg leading-6 text-indigo-900 mt-1">
-                <span className="font-bold">City: </span> {address.city}
-              </p>
-              <p className="text-lg leading-6 text-indigo-900 mt-1">
-                <span className="font-bold">Postal Code: </span> {address.postalCode}
-              </p>
-              <div className="mt-8 flex justify-between">
-                <button
-                  onClick={() => setSelectedEditIndex(index)}
-                  className="bg-indigo-600 btn-sm hover:bg-indigo-700 text-white font-medium px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-lg"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={(e) => handleRemove(e, index)}
-                  className="bg-red-600 btn-sm hover:bg-red-700 text-white font-medium px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 shadow-lg"
-                >
-                  Remove
-                </button>
+            ) : (
+              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <p className="text-lg text-indigo-900 mt-1">
+                  <span className="font-bold">Name: </span>
+                  {address.name || "Not provided"}
+                </p>
+                <p className="text-lg text-indigo-900 mt-1">
+                  <span className="font-bold">Email: </span>
+                  {address.email || "Not provided"}
+                </p>
+                <p className="text-lg text-indigo-900 mt-1">
+                  <span className="font-bold">Phone Number: </span>
+                  {address.phoneNumber || "Not provided"}
+                </p>
+                <p className="text-lg text-indigo-900 mt-1">
+                  <span className="font-bold">Country: </span>
+                  {address.country || "Not provided"}
+                </p>
+                <p className="text-lg leading-6 text-indigo-900 mt-1">
+                  <span className="font-bold">City: </span> {address.city}
+                </p>
+                <p className="text-lg leading-6 text-indigo-900 mt-1">
+                  <span className="font-bold">Postal Code: </span>{" "}
+                  {address.postalCode}
+                </p>
+                <div className="mt-8 flex justify-between">
+                  <button
+                    onClick={() => setSelectedEditIndex(index)}
+                    className="bg-indigo-600 btn-sm hover:bg-indigo-700 text-white font-medium px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-lg"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={(e) => handleRemove(e, index)}
+                    className="bg-red-600 btn-sm hover:bg-red-700 text-white font-medium px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 shadow-lg"
+                  >
+                    Remove
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         ))}
       </div>
